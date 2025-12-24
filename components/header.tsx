@@ -104,7 +104,7 @@ export function Header() {
         isScrolled ? "bg-[#003535]/95 backdrop-blur-sm" : "bg-[#003535]"
       } text-[#be923c] transition-all duration-300`}
     >
-      <div className="container mx-auto relative h-16 px-4 sm:px-6 lg:px-8">
+      <div className="relative h-16 px-4 sm:px-6 lg:px-8">
         <div className="flex h-full items-center justify-between">
           {/* LEFT - Brand */}
           <div className="flex items-center space-x-2 md:space-x-3 min-w-0 flex-shrink-0">
@@ -127,15 +127,15 @@ export function Header() {
           </div>
 
           {/* RIGHT - All navigation items and CTA in one div */}
-          <div className="flex items-center justify-end gap-4 min-w-0 flex-1">
+          <div className="flex items-center justify-end w-full gap-2 sm:gap-3 lg:gap-4">
             {/* Desktop Navigation - Hidden on mobile */}
-            <nav className="hidden lg:flex items-center justify-end gap-4 xl:gap-6 pointer-events-auto flex-1">
+            <nav className="hidden lg:flex items-center gap-2 xl:gap-3">
               <Link
                 href="/gravionne/philosophy"
                 aria-current={
                   isActive("/gravionne/philosophy") ? "page" : undefined
                 }
-                className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1 rounded-md ${
+                className={`text-sm font-medium transition-colors whitespace-nowrap px-2.5 py-1.5 rounded-md ${
                   isActive("/gravionne/philosophy")
                     ? "text-white bg-[#be923c]/20"
                     : "text-[#be923c] hover:text-white hover:bg-[#be923c]/10"
@@ -147,7 +147,7 @@ export function Header() {
               {/* Desktop dropdown */}
               <div className="relative group">
                 <button
-                  className={`flex items-center gap-1 text-sm font-medium px-2 py-1 rounded-md transition-colors whitespace-nowrap ${
+                  className={`flex items-center gap-1 text-sm font-medium px-2.5 py-1.5 rounded-md transition-colors whitespace-nowrap ${
                     isSection("/gravionne/curations")
                       ? "text-white bg-[#be923c]/20"
                       : "text-[#be923c] hover:text-white hover:bg-[#be923c]/10"
@@ -158,7 +158,7 @@ export function Header() {
                   Curations
                   <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-[#003535] border border-[#be923c]/30 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible focus-within:opacity-100 focus-within:visible transition-all duration-200 origin-top">
+                <div className="absolute top-full right-0 mt-2 w-48 bg-[#003535] border border-[#be923c]/30 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible focus-within:opacity-100 focus-within:visible transition-all duration-200 origin-top-right z-50">
                   <Link
                     href="/gravionne/curations/sanovia"
                     aria-current={
@@ -166,7 +166,7 @@ export function Header() {
                         ? "page"
                         : undefined
                     }
-                    className={`block px-4 py-3 text-sm transition-colors first:rounded-t-md last:rounded-b-md ${
+                    className={`block px-4 py-3 text-sm transition-colors first:rounded-t-md ${
                       isActive("/gravionne/curations/sanovia")
                         ? "bg-[#be923c] text-[#003535] font-medium"
                         : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
@@ -196,7 +196,7 @@ export function Header() {
                         ? "page"
                         : undefined
                     }
-                    className={`block px-4 py-3 text-sm transition-colors ${
+                    className={`block px-4 py-3 text-sm transition-colors last:rounded-b-md ${
                       isActive("/gravionne/curations/aurevia")
                         ? "bg-[#be923c] text-[#003535] font-medium"
                         : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
@@ -212,7 +212,7 @@ export function Header() {
                 aria-current={
                   isActive("/gravionne/journals") ? "page" : undefined
                 }
-                className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1 rounded-md ${
+                className={`text-sm font-medium transition-colors whitespace-nowrap px-2.5 py-1.5 rounded-md ${
                   isActive("/gravionne/journals")
                     ? "text-white bg-[#be923c]/20"
                     : "text-[#be923c] hover:text-white hover:bg-[#be923c]/10"
@@ -225,7 +225,7 @@ export function Header() {
                 aria-current={
                   isActive("/gravionne/leadership") ? "page" : undefined
                 }
-                className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1 rounded-md ${
+                className={`text-sm font-medium transition-colors whitespace-nowrap px-2.5 py-1.5 rounded-md ${
                   isActive("/gravionne/leadership")
                     ? "text-white bg-[#be923c]/20"
                     : "text-[#be923c] hover:text-white hover:bg-[#be923c]/10"
@@ -238,7 +238,7 @@ export function Header() {
                 aria-current={
                   isActive("/gravionne/impact") ? "page" : undefined
                 }
-                className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1 rounded-md ${
+                className={`text-sm font-medium transition-colors whitespace-nowrap px-2.5 py-1.5 rounded-md ${
                   isActive("/gravionne/impact")
                     ? "text-white bg-[#be923c]/20"
                     : "text-[#be923c] hover:text-white hover:bg-[#be923c]/10"
@@ -251,7 +251,7 @@ export function Header() {
                 aria-current={
                   isActive("/gravionne/contact") ? "page" : undefined
                 }
-                className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1 rounded-md ${
+                className={`text-sm font-medium transition-colors whitespace-nowrap px-2.5 py-1.5 rounded-md ${
                   isActive("/gravionne/contact")
                     ? "text-white bg-[#be923c]/20"
                     : "text-[#be923c] hover:text-white hover:bg-[#be923c]/10"
@@ -265,7 +265,7 @@ export function Header() {
                 aria-current={
                   isActive("/gravionne/blog") ? "page" : undefined
                 }
-                className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1 rounded-md ${
+                className={`text-sm font-medium transition-colors whitespace-nowrap px-2.5 py-1.5 rounded-md ${
                   isActive("/gravionne/blog")
                     ? "text-white bg-[#be923c]/20"
                     : "text-[#be923c] hover:text-white hover:bg-[#be923c]/10"
@@ -276,11 +276,11 @@ export function Header() {
             </nav>
 
             {/* Desktop CTA Buttons */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2 xl:gap-3 flex-shrink-0">
               <Button
                 variant="outline"
                 size="sm"
-                className="border-[#be923c] text-[#be923c] hover:bg-transparent hover:text-[#be923c] bg-transparent whitespace-nowrap text-xs xl:text-sm"
+                className="border-[#be923c] text-[#be923c] hover:bg-transparent hover:text-[#be923c] bg-transparent whitespace-nowrap text-xs xl:text-sm px-3"
                 aria-label="Your Gateway to Elegance"
               >
                 Your Gateway to Elegance
@@ -288,14 +288,14 @@ export function Header() {
               {isClient && status === "authenticated" && session?.user ? (
                 <div className="relative" ref={userMenuRef}>
                   <button
-                    className="flex items-center gap-1 px-3 py-2 rounded-lg border border-[#be923c] text-[#be923c] hover:bg-[#be923c]/10 transition-colors text-sm min-w-[120px]"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#be923c] text-[#be923c] hover:bg-[#be923c]/10 transition-colors text-sm min-w-[100px] xl:min-w-[120px]"
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
                     aria-haspopup="true"
                     aria-expanded={userMenuOpen}
                     aria-label="User menu"
                   >
                     <User className="h-4 w-4 flex-shrink-0" />
-                    <span className="hidden sm:inline truncate max-w-[100px]">
+                    <span className="truncate max-w-[80px] xl:max-w-[100px]">
                       {getFirstName(session.user.name)}
                     </span>
                     <ChevronDown
@@ -305,7 +305,7 @@ export function Header() {
                     />
                   </button>
                   {userMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-[#003535] border border-[#be923c]/30 rounded-lg shadow-lg overflow-hidden z-10">
+                    <div className="absolute right-0 mt-2 w-48 bg-[#003535] border border-[#be923c]/30 rounded-lg shadow-lg overflow-hidden z-50">
                       <div className="px-4 py-3 border-b border-[#be923c]/20">
                         <p className="text-xs text-[#be923c] opacity-75">
                           Welcome
@@ -345,13 +345,12 @@ export function Header() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="border-[#be923c] text-[#be923c] hover:bg-[#be923c] hover:text-[#003535] bg-transparent min-w-[100px]"
+                  className="border-[#be923c] text-[#be923c] hover:bg-[#be923c] hover:text-[#003535] bg-transparent"
                   onClick={() => router.push("/auth/signin")}
                   aria-label="Sign in"
                 >
                   <User className="h-4 w-4 mr-2" />
-                  <span className="hidden sm:inline">Sign In</span>
-                  <span className="sm:hidden">Login</span>
+                  Sign In
                 </Button>
               )}
             </div>
