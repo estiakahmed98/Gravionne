@@ -174,7 +174,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
               <Image
-                src="/logos/Gravionne_logo.jpeg"
+                src="/logos/G GOLD.svg"
                 alt="Gravionne Logo"
                 width={45}
                 height={45}
