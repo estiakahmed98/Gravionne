@@ -243,7 +243,7 @@ export default function ContactPage() {
                   <Card className="border-accent/20">
                     <CardContent className="p-6">
                       <p className="font-heading text-lg font-semibold mb-4">
-                        Gravionne – A subsidiary of Aan-Nahl Software
+                        Gravionne – A Premium Health, Wellness & Health-Tech Company
                       </p>
                       <img src="/aan logo.png" alt="" />
                     </CardContent>

@@ -24,7 +24,7 @@ export default function HomePage() {
               the future of human wellbeing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="gravionne/philosophy">
+              <Link href="/gravionne/philosophy">
                 <Button
                   size="lg"
                   className="bg-[#003535] text-[#be923c] hover:bg-[#003535]/100"

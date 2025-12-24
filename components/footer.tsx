@@ -164,10 +164,6 @@ export function Footer() {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <p>A subsidiary of Aan-Nahl Software</p>
-            <img src="/aan logo.png" alt="Aan-Nahl Software" />
-          </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-[#be923c]/30">
