@@ -1,0 +1,23 @@
+[
+  {
+    "title": "GuruNet Reputation Ops",
+    "description": "Multi-role Next.js platform for client reputation operations with task automation, QC workflows, and real-time collaboration.",
+    "longDescription": "GuruNet Reputation Ops is a Next.js (App Router) + TypeScript platform for running end-to-end client ops. It includes role-specific dashboards (admin, AM/CEO, agent, QC, data-entry, client), task & QC workflows with pause reasons and performance scoring, template/package cloning for client-specific site assets, onboarding and renewal flows, and real-time chat/notifications. The UI uses Tailwind CSS and shadcn/ui; data is powered by Prisma/Postgres; real-time is via Pusher. Deployed on Vercel for quick previews.",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Lucide React",
+      "Pusher",
+      "SWR",
+      "Vercel"
+    ],
+    "image": "/assets/gurunet-reputation-ops.png",
+    "link": "https://task-management-ann-nahl-gray.vercel.app"
+  }
+]
