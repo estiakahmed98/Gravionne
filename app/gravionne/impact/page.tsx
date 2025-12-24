@@ -372,7 +372,7 @@ export default function ImpactPage() {
               foundation for a future where personalized wellness and luxury
               experiences converge to unlock human potential.
             </p>
-            <Button className="bg-[#50000B] text-[#C2A36A] hover:bg-[#50000B]/100">
+            <Button className="bg-[#003535] text-[#be923c] hover:bg-[#003535]/100">
               Partner With Us
             </Button>
           </div>

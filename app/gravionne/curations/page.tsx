@@ -95,7 +95,7 @@ export default function CurationsPage() {
                       </div>
                     </div>
                     <Link href="/gravionne/curations/sanovia">
-                      <Button className="w-full bg-[#50000B] text-[#C2A36A] hover:bg-[#50000B]/90">
+                      <Button className="w-full bg-[#003535] text-[#be923c] hover:bg-[#003535]/90">
                         Discover Sanovia
                       </Button>
                     </Link>
@@ -144,7 +144,7 @@ export default function CurationsPage() {
                       </div>
                     </div>
                     <Link href="/gravionne/curations/aurevia">
-                      <Button className="w-full bg-[#50000B] text-[#C2A36A] hover:bg-[#50000B]/90">
+                      <Button className="w-full bg-[#003535] text-[#be923c] hover:bg-[#003535]/90">
                         View Aurevia
                       </Button>
                     </Link>
@@ -192,7 +192,7 @@ export default function CurationsPage() {
                       </div>
                     </div>
                     <Link href="/gravionne/curations/mediora">
-                      <Button className="w-full bg-[#50000B] text-[#C2A36A] hover:bg-[#50000B]/90">
+                      <Button className="w-full bg-[#003535] text-[#be923c] hover:bg-[#003535]/90">
                         Explore Mediora
                       </Button>
                     </Link>

@@ -264,7 +264,7 @@ export default function BlogCard() {
               >
                 {/* Clickable overlay that doesn't interfere with buttons */}
                 <Link
-                  href={`/admin/blogs/edit/${blog.id}`}
+                  href={`/admin/blog/edit/${blog.id}`}
                   className="absolute inset-0 z-0"
                   aria-label={`Edit ${blog.title}`}
                 />
@@ -347,7 +347,7 @@ export default function BlogCard() {
                   {/* Actions - Wrapped in a div with higher z-index to stay above the clickable overlay */}
                   <div className="relative z-10 flex items-center justify-between pt-4 border-t border-[#D1D8BE]">
                     <Link
-                      href={`/admin/blogs/edit/${blog.id}`}
+                      href={`/admin/blog/edit/${blog.id}`}
                       className="flex items-center space-x-2 text-[#0E4B4B] hover:text-[#086666] font-medium text-sm transition-colors duration-300"
                       onClick={(e) => e.stopPropagation()}
                     >

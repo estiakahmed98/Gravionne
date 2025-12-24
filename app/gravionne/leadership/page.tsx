@@ -202,7 +202,7 @@ export default function LeadershipPage() {
               visionaries, scientists, and innovators who are reshaping the
               future of wellness.
             </p>
-            <Button className="bg-[#50000B] text-[#C2A36A] hover:bg-[#50000B]/100">
+            <Button className="bg-[#003535] text-[#be923c] hover:bg-[#003535]/100">
               Explore Opportunities
             </Button>
           </div>

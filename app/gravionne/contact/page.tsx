@@ -220,7 +220,7 @@ export default function ContactPage() {
 
                       <Button
                         type="submit"
-                        className="w-full bg-[#50000B] text-[#C2A36A] hover:bg-[#50000B]/85"
+                        className="w-full bg-[#003535] text-[#be923c] hover:bg-[#003535]/85"
                       >
                         Send Message
                       </Button>
@@ -497,7 +497,7 @@ export default function ContactPage() {
       </main>
 
       {/* Footer wrapper enforces global colors from brand guidance */}
-      <div className="bg-[#50000B] text-[#C2A36A]"></div>
+      <div className="bg-[#003535] text-[#be923c]"></div>
     </div>
   );
 }

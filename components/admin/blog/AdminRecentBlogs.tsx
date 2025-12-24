@@ -25,7 +25,7 @@ const RecentBlogSkeleton = () => (
   </div>
 );
 
-export default function RecentBlogs() {
+export default function AdminRecentBlogs() {
   const [recentBlogs, setRecentBlogs] = useState<RecentBlog[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -87,13 +87,14 @@ export default function RecentBlogs() {
       </div>
 
       {/* Content */}
-      <div className="p-4 space-y-4">
-        {recentBlogs.map((blog, index) => (
-          <Link
-            key={blog.id}
-            href={`/blog/${blog.slug}`}
-            className="group block"
-          >
+      <div className="p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {recentBlogs.map((blog, index) => (
+            <Link
+              key={blog.id}
+              href={`/blog/${blog.slug}`}
+              className="group block"
+            >
             <article className="relative flex flex-col gap-3 p-4 rounded-lg border bg-card hover:bg-accent/30 hover:shadow-md transition-all duration-300">
               {/* New badge (only first item) */}
               {index === 0 && (
@@ -151,11 +152,12 @@ export default function RecentBlogs() {
             </article>
           </Link>
         ))}
+        </div>
 
         {/* View all */}
         <Link
-          href="/gravionne/blog"
-          className="mt-4 block text-center py-3 rounded-lg border border-dashed border-primary/30 bg-primary/5 hover:bg-primary/10 text-sm font-medium text-primary transition-all"
+          href="admin/blog"
+          className="mt-6 block text-center py-3 rounded-lg border border-dashed border-primary/30 bg-primary/5 hover:bg-primary/10 text-sm font-medium text-primary transition-all"
         >
           View all articles →
         </Link>

@@ -383,7 +383,7 @@ export default function PhilosophyPage() {
               <Link href="/gravionne/curations">
                 <Button
                   size="lg"
-                  className="bg-[#50000B] text-[#C2A36A] hover:bg-[#50000B]/100"
+                  className="bg-[#003535] text-[#be923c] hover:bg-[#003535]/100"
                 >
                   Explore Our Curations
                 </Button>
@@ -392,7 +392,7 @@ export default function PhilosophyPage() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-accent text-accent hover:bg-[#50000B] hover:text-[#C2A36A] bg-transparent"
+                  className="border-accent text-accent hover:bg-[#003535] hover:text-[#be923c] bg-transparent"
                 >
                   Partner With Us
                 </Button>
@@ -403,7 +403,7 @@ export default function PhilosophyPage() {
       </main>
 
       {/* Footer wrapper enforces global colors from brand guidance */}
-      <div className="bg-[#50000B] text-[#C2A36A]"></div>
+      <div className="bg-[#003535] text-[#be923c]"></div>
     </div>
   );
 }

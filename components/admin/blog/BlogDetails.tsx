@@ -25,13 +25,13 @@ interface Blog {
 
 /* =================== RELATED CARD =================== */
 const RelatedBlogsCard = () => (
-  <div className="sticky top-6 rounded-2xl border border-[#C2A36A]/20 bg-white/80 backdrop-blur-sm shadow-sm overflow-hidden">
+  <div className="sticky top-6 rounded-2xl border border-[#be923c]/20 bg-white/80 backdrop-blur-sm shadow-sm overflow-hidden">
     {/* Header */}
-    <div className="flex items-center gap-3 px-6 py-5 border-b border-[#C2A36A]/20 bg-[#50000B]/95">
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C2A36A]/15">
-        <BookOpen className="h-5 w-5 text-[#C2A36A]" />
+    <div className="flex items-center gap-3 px-6 py-5 border-b border-[#be923c]/20 bg-[#003535]/95">
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#be923c]/15">
+        <BookOpen className="h-5 w-5 text-[#be923c]" />
       </div>
-      <h3 className="text-base font-semibold tracking-wide text-[#C2A36A]">
+      <h3 className="text-base font-semibold tracking-wide text-[#be923c]">
         Related Reading
       </h3>
     </div>
@@ -44,7 +44,7 @@ const RelatedBlogsCard = () => (
       </p>
 
       {/* Subtle divider */}
-      <div className="mt-5 h-px w-12 bg-[#C2A36A]/40" />
+      <div className="mt-5 h-px w-12 bg-[#be923c]/40" />
     </div>
   </div>
 );

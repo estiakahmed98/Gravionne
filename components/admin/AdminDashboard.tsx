@@ -37,6 +37,8 @@ import {
   FaInternetExplorer,
 } from "react-icons/fa";
 
+import AdminRecentBlogs from "./blog/AdminRecentBlogs";
+
 type ApiBlog = {
   id: number;
   post_title: string;
@@ -1313,80 +1315,7 @@ const AdminDashboard: React.FC = () => {
         </div>
       </section>
       <section className="mb-8">
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-          <div className="p-5 border-b border-gray-200 flex justify-between items-center">
-            <h2 className="text-lg font-semibold text-gray-800">
-              Recent Blog Posts
-            </h2>
-            <button className="px-4 py-2 bg-[#BC913A] text-white rounded-lg text-sm font-medium hover:bg-[#A77D2F] transition-colors">
-              Add New Post
-            </button>
-          </div>
-
-          <div className="overflow-x-auto">
-            {isLoadingBlogs ? (
-              <TableSkeleton rows={5} cols={3} />
-            ) : errorBlogs ? (
-              <div className="p-6 text-center text-red-500">{errorBlogs}</div>
-            ) : (
-              <table className="w-full">
-                <thead className="bg-gray-50 text-xs uppercase text-gray-500">
-                  <tr>
-                    <th className="px-5 py-3 text-left">Title</th>
-                    <th className="px-5 py-3 text-left">Status</th>
-                    <th className="px-5 py-3 text-left">Actions</th>
-                  </tr>
-                </thead>
-
-                <tbody className="divide-y divide-gray-200">
-                  {recentBlogs.map((blog) => (
-                    <tr key={blog.id}>
-                      <td className="px-5 py-4">
-                        <p className="font-medium text-gray-900 line-clamp-1">
-                          {blog.post_title}
-                        </p>
-                      </td>
-
-                      <td className="px-5 py-4 whitespace-nowrap">
-                        <span
-                          className={`px-2 py-1 rounded-full text-xs font-medium capitalize ${
-                            blog.post_status === "publish" ||
-                            blog.post_status === "published"
-                              ? "bg-green-100 text-green-800"
-                              : blog.post_status === "pending"
-                              ? "bg-amber-100 text-amber-800"
-                              : "bg-gray-100 text-gray-800"
-                          }`}
-                        >
-                          {blog.post_status}
-                        </span>
-                      </td>
-
-                      <td className="px-5 py-4">
-                        <div className="flex gap-2">
-                          <button
-                            onClick={() => handleEditClick(blog)}
-                            className="p-2 text-[#003B3A] hover:bg-[#E9EDED] rounded-lg transition-colors"
-                            title="Edit"
-                          >
-                            <FaEdit />
-                          </button>
-                          <button
-                            onClick={() => handleDeleteClick(blog.id)}
-                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                            title="Delete"
-                          >
-                            <FaTrash />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-          </div>
-        </div>
+        <AdminRecentBlogs />
       </section>
 
       {/* Edit Modal */}

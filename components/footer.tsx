@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#C2A36A]/30 bg-gradient-to-b from-[#50000B] to-[#50000B]/90 text-[#C2A36A]">
+    <footer className="border-t border-[#be923c]/30 bg-gradient-to-b from-[#003535] to-[#003535]/90 text-[#be923c]">
       <div className="container mx-auto max-w-screen-xl px-4 py-12">
         <div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
@@ -12,25 +12,25 @@ export function Footer() {
               <div className="space-y-2">
                 <Link
                   href="/gravionne/curations"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   All Curations
                 </Link>
                 <Link
                   href="/gravionne/curations/sanovia"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Sanovia
                 </Link>
                 <Link
                   href="/gravionne/curations/mediora"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Mediora
                 </Link>
                 <Link
                   href="/gravionne/curations/aurevia"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Aurevia
                 </Link>
@@ -42,25 +42,25 @@ export function Footer() {
               <div className="space-y-2">
                 <Link
                   href="/gravionne/leadership"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Leadership
                 </Link>
                 <Link
                   href="/gravionne/impact"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Impact
                 </Link>
                 <Link
                   href="/gravionne/journals"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Journal
                 </Link>
                 <Link
                   href="/gravionne/contact"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Contact
                 </Link>
@@ -72,13 +72,13 @@ export function Footer() {
               <div className="space-y-2">
                 <Link
                   href="/gravionne/partnership"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Partner With Us
                 </Link>
                 <Link
                   href="/gravionne/contact"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Get in Touch
                 </Link>
@@ -90,25 +90,25 @@ export function Footer() {
               <div className="space-y-2">
                 <Link
                   href="/gravionne/privacy"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Privacy & Dignity
                 </Link>
                 <Link
                   href="/gravionne/terms"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Terms of Engagement
                 </Link>
                 <Link
                   href="/gravionne/compliance"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Compliance & Governance
                 </Link>
                 <Link
                   href="/gravionne/accessibility"
-                  className="block text-sm text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   Accessibility
                 </Link>
@@ -120,7 +120,7 @@ export function Footer() {
               <div className="flex space-x-4 mb-4">
                 <Link
                   href="#"
-                  className="text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   <span className="sr-only">LinkedIn</span>
                   <svg
@@ -133,7 +133,7 @@ export function Footer() {
                 </Link>
                 <Link
                   href="#"
-                  className="text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   <span className="sr-only">Instagram</span>
                   <svg
@@ -146,7 +146,7 @@ export function Footer() {
                 </Link>
                 <Link
                   href="#"
-                  className="text-[#C2A36A] hover:text-[#C2A36A] transition-colors"
+                  className="text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
                   <span className="sr-only">YouTube</span>
                   <svg
@@ -158,7 +158,7 @@ export function Footer() {
                   </svg>
                 </Link>
               </div>
-              <p className="text-sm text-[#C2A36A]/80 leading-relaxed">
+              <p className="text-sm text-[#be923c]/80 leading-relaxed">
                 In formation — building our global flagship in health, wellness
                 & health-tech. Welcoming visionary partners worldwide.
               </p>
@@ -170,7 +170,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[#C2A36A]/30">
+        <div className="mt-12 pt-8 border-t border-[#be923c]/30">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
               <Image
@@ -179,18 +179,18 @@ export function Footer() {
                 width={45}
                 height={45}
                 priority
-                className="rounded-full ring-1 ring-[#C2A36A] transition-all duration-200 hover:scale-110"
+                className="rounded-full ring-1 ring-[#be923c] transition-all duration-200 hover:scale-110"
               />
-              <p className="text-sm text-[#C2A36A]/80 text-center md:text-left">
+              <p className="text-sm text-[#be923c]/80 text-center md:text-left">
                 © 2025 Gravionne. Elevating Health, Wellness & Humanity. All
                 rights reserved.
               </p>
             </div>
-            <p className="text-sm text-[#C2A36A]/80">
+            <p className="text-sm text-[#be923c]/80">
               Registered in Bangladesh — Serving globally.
             </p>
           </div>
-          <p className="text-xs text-[#C2A36A]/70 mt-4 text-center md:text-left">
+          <p className="text-xs text-[#be923c]/70 mt-4 text-center md:text-left">
             Crafted with precision. Guided by science. Inspired by humanity.
           </p>
         </div>

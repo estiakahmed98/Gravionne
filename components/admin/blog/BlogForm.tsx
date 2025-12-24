@@ -100,7 +100,7 @@ export default function BlogForm({ blog, onSuccess }: BlogFormProps) {
         if (onSuccess) {
           onSuccess();
         } else {
-          router.push("/admin/blogs");
+          router.push("/admin/blog");
           router.refresh();
         }
       } else {

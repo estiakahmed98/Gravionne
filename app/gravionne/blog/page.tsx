@@ -38,7 +38,7 @@ export default function BlogsPage() {
           </p>
 
           {/* Divider */}
-          <div className="mt-6 h-px w-24 bg-[#C2A36A]/60" />
+          <div className="mt-6 h-px w-24 bg-[#be923c]/60" />
         </div>
       </section>
 

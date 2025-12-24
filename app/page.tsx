@@ -19,7 +19,7 @@ export default function HomePage() {
               Elevating Health, Wellness & Humanity
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty mb-8 leading-relaxed">
-              A luxury health, wellness & health-tech company building our
+              A Premium health, wellness & health-tech company building our
               global flagship. Welcoming visionary partners worldwide to shape
               the future of human wellbeing.
             </p>
@@ -27,7 +27,7 @@ export default function HomePage() {
               <Link href="gravionne/philosophy">
                 <Button
                   size="lg"
-                  className="bg-[#50000B] text-[#C2A36A] hover:bg-[#50000B]/100"
+                  className="bg-[#003535] text-[#be923c] hover:bg-[#003535]/100"
                 >
                   Discover Our Philosophy
                 </Button>
@@ -36,7 +36,7 @@ export default function HomePage() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-accent text-accent hover:bg-[#50000B] hover:text-[#C2A36A] bg-transparent"
+                  className="border-accent text-accent hover:bg-[#003535] hover:text-[#be923c] bg-transparent"
                 >
                   Partner With Us
                 </Button>
@@ -67,7 +67,7 @@ export default function HomePage() {
                 <Link href="gravionne/philosophy">
                   <Button
                     variant="outline"
-                    className="border-accent text-accent hover:bg-[#50000B] hover:text-[#C2A36A] bg-transparent"
+                    className="border-accent text-accent hover:bg-[#003535] hover:text-[#be923c] bg-transparent"
                   >
                     Explore Our Philosophy
                   </Button>
@@ -120,7 +120,7 @@ export default function HomePage() {
                   <Link href="/gravionne/curations/sanovia">
                     <Button
                       variant="ghost"
-                      className="text-[#C2A36A] hover:text-[#C2A36A] hover:bg-[#50000B]"
+                      className="text-[#be923c] hover:text-[#be923c] hover:bg-[#003535]"
                     >
                       Discover Sanovia →
                     </Button>
@@ -147,7 +147,7 @@ export default function HomePage() {
                   <Link href="/gravionne/curations/mediora">
                     <Button
                       variant="ghost"
-                      className="text-[#C2A36A] hover:text-[#C2A36A] hover:bg-[#50000B]"
+                      className="text-[#be923c] hover:text-[#be923c] hover:bg-[#003535]"
                     >
                       Explore Mediora →
                     </Button>
@@ -175,7 +175,7 @@ export default function HomePage() {
                   <Link href="/gravionne/curations/aurevia">
                     <Button
                       variant="ghost"
-                      className="text-[#C2A36A] hover:text-[#C2A36A] hover:bg-[#50000B]"
+                      className="text-[#be923c] hover:text-[#be923c] hover:bg-[#003535]"
                     >
                       View Aurevia →
                     </Button>
@@ -231,7 +231,7 @@ export default function HomePage() {
                 <Link href="/journals">
                   <Button
                     variant="outline"
-                    className="border-accent text-accent hover:bg-[#50000B] hover:text-[#C2A36A] bg-transparent"
+                    className="border-accent text-accent hover:bg-[#003535] hover:text-[#be923c] bg-transparent"
                   >
                     Read Our Journals
                   </Button>
@@ -368,7 +368,7 @@ export default function HomePage() {
               <Link href="/leadership">
                 <Button
                   variant="outline"
-                  className="border-accent text-accent hover:bg-[#50000B] hover:text-[#C2A36A] bg-transparent"
+                  className="border-accent text-accent hover:bg-[#003535] hover:text-[#be923c] bg-transparent"
                 >
                   Meet Our Full Team
                 </Button>
@@ -427,7 +427,7 @@ export default function HomePage() {
               <Link href="/impact">
                 <Button
                   variant="outline"
-                  className="border-accent text-accent hover:bg-[#50000B] hover:text-[#C2A36A] bg-transparent"
+                  className="border-accent text-accent hover:bg-[#003535] hover:text-[#be923c] bg-transparent"
                 >
                   Explore Our Impact
                 </Button>
@@ -450,7 +450,7 @@ export default function HomePage() {
             <Link href="/gravionne/partnership">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-[#50000B] to-[#50000B]/90 text-[#C2A36A] hover:bg-[#50000B]/100"
+                className="bg-gradient-to-r from-[#003535] to-[#003535]/90 text-[#be923c] hover:bg-[#003535]/100"
               >
                 Begin Partnership Journey
               </Button>
