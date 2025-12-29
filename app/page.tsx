@@ -13,34 +13,36 @@ export default function HomePage() {
       <main className="flex-1">
         <SplashCursor />
         {/* Hero Section */}
-        <BackgroundLines className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-background to-muted/20">
-          <div className="container mx-auto max-w-screen-xl px-4 text-center">
-            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance mb-6">
-              Elevating Health, Wellness & Humanity
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty mb-8 leading-relaxed">
-              A Premium health, wellness & health-tech company building our
-              global flagship. Welcoming visionary partners worldwide to shape
-              the future of human wellbeing.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/gravionne/philosophy">
-                <Button
-                  size="lg"
-                  className="bg-[#003535] text-[#be923c] hover:bg-[#003535]/100"
-                >
-                  Discover Our Philosophy
-                </Button>
-              </Link>
-              <Link href="/gravionne/partnership">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-accent text-accent hover:bg-[#003535] hover:text-[#be923c] bg-transparent"
-                >
-                  Partner With Us
-                </Button>
-              </Link>
+        <BackgroundLines className="h-screen flex items-center justify-center">
+          <div className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-background to-muted/20">
+            <div className="container mx-auto max-w-screen-xl px-4 text-center">
+              <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance mb-6">
+                Elevating Health, Wellness & Humanity
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty mb-8 leading-relaxed">
+                A Premium health, wellness & health-tech company building our
+                global flagship. Welcoming visionary partners worldwide to shape
+                the future of human wellbeing.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/gravionne/philosophy">
+                  <Button
+                    size="lg"
+                    className="bg-[#003535] text-[#be923c] hover:bg-[#003535]/80"
+                  >
+                    Discover Our Philosophy
+                  </Button>
+                </Link>
+                <Link href="/gravionne/partnership">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-accent text-accent hover:bg-[#003535] hover:text-[#be923c] bg-transparent"
+                  >
+                    Partner With Us
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </BackgroundLines>
