@@ -79,9 +79,9 @@ export default function SanoviaPage() {
                 </div>
               </div>
               <div className="relative">
-                <div className="aspect-[4/5] bg-muted rounded-lg overflow-hidden">
+                <div className="bg-muted rounded-lg overflow-hidden">
                   <img
-                    src="/elegant-sanovia-wellness-products-with-gold-accent.png"
+                    src="/Sanovia.png"
                     alt="Sanovia Collection Hero"
                     className="w-full h-full object-cover"
                   />

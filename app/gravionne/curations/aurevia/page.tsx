@@ -79,9 +79,9 @@ export default function AureviaPage() {
                 </div>
               </div>
               <div className="relative">
-                <div className="aspect-[4/5] bg-muted rounded-lg overflow-hidden">
+                <div className=" bg-muted rounded-lg overflow-hidden">
                   <img
-                    src="/premium-aurevia-wellness-collection-with-natural-e.png"
+                    src="/Aurevia.png"
                     alt="Aurevia Collection Hero"
                     className="w-full h-full object-cover"
                   />

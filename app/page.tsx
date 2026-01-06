@@ -76,9 +76,9 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="relative">
-                <div className="aspect-[4/3] bg-muted rounded-lg overflow-hidden">
+                <div className=" bg-muted rounded-lg overflow-hidden">
                   <img
-                    src="/luxury-wellness-spa-with-natural-elements-and-soft.png"
+                    src="/Philosophy.png"
                     alt="Luxury wellness environment showcasing our philosophy"
                     className="w-full h-full object-cover"
                   />
@@ -107,7 +107,7 @@ export default function HomePage() {
                 <CardContent className="p-6">
                   <div className="aspect-square bg-muted rounded-lg mb-6 overflow-hidden">
                     <img
-                      src="/elegant-sanovia-wellness-products-with-gold-accent.png"
+                      src="/Sanovia.png"
                       alt="Sanovia Collection"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -134,7 +134,7 @@ export default function HomePage() {
                 <CardContent className="p-6">
                   <div className="aspect-square bg-muted rounded-lg mb-6 overflow-hidden">
                     <img
-                      src="/sophisticated-mediora-health-tech-products-with-cl.png"
+                      src="/Mediora.png"
                       alt="Mediora Collection"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -161,7 +161,7 @@ export default function HomePage() {
                 <CardContent className="p-6">
                   <div className="aspect-square bg-muted rounded-lg mb-6 overflow-hidden">
                     <img
-                      src="/premium-aurevia-wellness-collection-with-natural-e.png"
+                      src="/Aurevia.png"
                       alt="Aurevia Collection"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
