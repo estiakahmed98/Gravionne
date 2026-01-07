@@ -105,7 +105,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="group hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-6">
-                  <div className="aspect-square bg-muted rounded-lg mb-6 overflow-hidden">
+                  <div className="aspect-[4/5] bg-muted rounded-lg mb-6 overflow-hidden">
                     <img
                       src="/Sanovia.png"
                       alt="Sanovia Collection"
@@ -132,7 +132,7 @@ export default function HomePage() {
 
               <Card className="group hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-6">
-                  <div className="aspect-square bg-muted rounded-lg mb-6 overflow-hidden">
+                  <div className="aspect-[4/5] bg-muted rounded-lg mb-6 overflow-hidden">
                     <img
                       src="/Mediora.png"
                       alt="Mediora Collection"
@@ -159,7 +159,7 @@ export default function HomePage() {
 
               <Card className="group hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-6">
-                  <div className="aspect-square bg-muted rounded-lg mb-6 overflow-hidden">
+                  <div className="aspect-[4/5] bg-muted rounded-lg mb-6 overflow-hidden">
                     <img
                       src="/Aurevia.png"
                       alt="Aurevia Collection"

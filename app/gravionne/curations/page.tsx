@@ -59,7 +59,7 @@ export default function CurationsPage() {
                 <CardContent className="p-0">
                   <div className="aspect-[4/5] bg-muted rounded-t-lg overflow-hidden">
                     <img
-                      src="/elegant-sanovia-wellness-products-with-gold-accent.png"
+                      src="/Sanovia.png"
                       alt="Sanovia Collection"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -108,7 +108,7 @@ export default function CurationsPage() {
                 <CardContent className="p-0">
                   <div className="aspect-[4/5] bg-muted rounded-t-lg overflow-hidden">
                     <img
-                      src="/premium-aurevia-wellness-collection-with-natural-e.png"
+                      src="/Aurevia.png"
                       alt="Aurevia Collection"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -157,7 +157,7 @@ export default function CurationsPage() {
                 <CardContent className="p-0">
                   <div className="aspect-[4/5] bg-muted rounded-t-lg overflow-hidden">
                     <img
-                      src="/sophisticated-mediora-health-tech-products-with-cl.png"
+                      src="/Mediora.png"
                       alt="Mediora Collection"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
