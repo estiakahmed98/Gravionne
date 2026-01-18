@@ -89,7 +89,7 @@ export default function MedioraPage() {
               </div>
               <div className="relative">
                 {/* Using existing hero image path */}
-                <div className="bg-muted rounded-lg overflow-hidden">
+                <div className="aspect-[4/5] bg-muted rounded-lg overflow-hidden">
                   <img
                     src="/Mediora.png"
                     alt="Mediora Collection Hero"

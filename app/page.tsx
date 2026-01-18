@@ -76,7 +76,7 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="relative">
-                <div className=" bg-muted rounded-lg overflow-hidden">
+                <div className="aspect-square bg-muted rounded-lg overflow-hidden">
                   <img
                     src="/Philosophy.png"
                     alt="Luxury wellness environment showcasing our philosophy"
