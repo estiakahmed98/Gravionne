@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\"",
-    "build": "next build",
+    "build": "prisma generate && prisma db push && prisma db seed && next build",
     "export": "next build",
     "dev": "next dev",
     "dev:clean": "npm run clean && next dev",
