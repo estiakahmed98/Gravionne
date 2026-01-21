@@ -660,7 +660,7 @@ export default function SplashCursor({
     })();
 
      
-    type AttachFn = (id: number) => number;
+    type AttachFn = (id: number) => number; // eslint-disable-line no-unused-vars
 
     interface FBO {
       texture: WebGLTexture;

@@ -9,7 +9,7 @@ const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 interface JoditEditorProps {
   placeholder?: string;
   initialValue?: string;
-  onContentChange?: (content: string) => void;
+  onContentChange?: (content: string) => void; // eslint-disable-line no-unused-vars
   height?: string | number;
   width?: string | number;
 }

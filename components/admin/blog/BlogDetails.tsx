@@ -1,9 +1,8 @@
 // components/admin/blog/BlogDetails.tsx
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
-import Link from "next/link";
 import { format } from "date-fns";
 import { Calendar, User, ArrowLeft, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";

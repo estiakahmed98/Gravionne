@@ -25,8 +25,6 @@ import {
 import {
   FaFileAlt,
   FaEye,
-  FaEdit,
-  FaTrash,
   FaGlobeAmericas,
   FaRegChartBar,
   FaChrome,
@@ -227,16 +225,14 @@ const AdminDashboard: React.FC = () => {
   const [analytics, setAnalytics] = useState<AnalyticsSummary | null>(null);
 
   // ---------- Fetch Blogs ----------
-  useEffect(() => {
-    const controller = new AbortController();
-
-    const fetchBlogs = async () => {
+  const fetchBlogs = useCallback(
+    async (controller?: AbortController) => {
       setIsLoadingBlogs(true);
       setErrorBlogs(null);
       try {
         const res = await fetch("/api/blog?page=1&limit=1000", {
           cache: "no-store",
-          signal: controller.signal,
+          signal: controller?.signal,
         });
         if (!res.ok) throw new Error("Failed to fetch blogs");
         const payload = await res.json();
@@ -258,22 +254,28 @@ const AdminDashboard: React.FC = () => {
         });
 
         runIdle(() => {
-        startTransition(() => {
-          setBlogs(transformed);
-        });
+          startTransition(() => {
+            setBlogs(transformed);
+          });
         });
       } catch (err: unknown) {
         if (isAbortError(err)) return;
         console.error(err);
         setErrorBlogs("Failed to fetch blogs. Please try again later.");
       } finally {
-        setIsLoadingBlogs(false);
+        if (!controller?.signal.aborted) {
+          setIsLoadingBlogs(false);
+        }
       }
-    };
+    },
+    [startTransition]
+  );
 
-    fetchBlogs();
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchBlogs(controller);
     return () => controller.abort();
-  }, []);
+  }, [fetchBlogs]);
 
   const recentBlogs = useMemo(() => blogs.slice(0, 5), [blogs]);
 
@@ -1314,7 +1316,74 @@ const AdminDashboard: React.FC = () => {
           )}
         </div>
       </section>
-      <section className="mb-8">
+      <section className="mb-8 space-y-6">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800">
+                Recent blog posts
+              </h3>
+              <p className="text-sm text-gray-500">
+                Quick actions for the latest entries
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => fetchBlogs()}
+              className="text-sm px-3 py-2 rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-700"
+              disabled={isLoadingBlogs}
+            >
+              {isLoadingBlogs ? "Refreshing..." : "Refresh"}
+            </button>
+          </div>
+
+          {isLoadingBlogs ? (
+            <SkeletonBox className="h-24" />
+          ) : errorBlogs ? (
+            <div className="text-sm text-red-600">{errorBlogs}</div>
+          ) : recentBlogs.length ? (
+            <ul className="divide-y divide-gray-200">
+              {recentBlogs.map((blog) => (
+                <li
+                  key={blog.id}
+                  className="py-3 flex items-start justify-between gap-4"
+                >
+                  <div>
+                    <p className="text-sm font-semibold text-gray-900 line-clamp-1">
+                      {blog.post_title || "Untitled post"}
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      {blog.post_status}
+                      {" ・ "}
+                      {blog._d
+                        ? blog._d.toLocaleDateString()
+                        : "Date unavailable"}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => handleEditClick(blog)}
+                      className="px-3 py-1.5 text-xs rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-700"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteClick(blog.id)}
+                      className="px-3 py-1.5 text-xs rounded-lg border border-red-100 text-red-700 hover:bg-red-50"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-sm text-gray-500">No blog posts found.</p>
+          )}
+        </div>
+
         <AdminRecentBlogs />
       </section>
 

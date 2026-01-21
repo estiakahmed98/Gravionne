@@ -33,7 +33,7 @@ const SIDEBAR_WIDTH_ICON = "3rem"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
  
-type SidebarSetter = (open: boolean) => void
+type SidebarSetter = (open: boolean) => void // eslint-disable-line no-unused-vars
 
 type SidebarContextProps = {
   state: "expanded" | "collapsed"

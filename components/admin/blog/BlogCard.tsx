@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { processBlogSummary } from "./summaryUtils";
@@ -38,7 +38,7 @@ export default function BlogCard() {
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  const fetchBlogs = async () => {
+  const fetchBlogs = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams({
@@ -71,12 +71,12 @@ export default function BlogCard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [debouncedSearchTerm, page]);
 
   // Optimized useEffect with proper dependencies
   useEffect(() => {
     fetchBlogs();
-  }, [page, debouncedSearchTerm]);
+  }, [fetchBlogs]);
 
   const handleDelete = async (id: number) => {
     if (!confirm("Are you sure you want to delete this blog?")) return;

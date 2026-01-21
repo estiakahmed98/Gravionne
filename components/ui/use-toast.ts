@@ -54,8 +54,8 @@ interface State {
   toasts: ToasterToast[]
 }
 
- 
-type StateListener = (_state: State) => void
+// eslint-disable-next-line no-unused-vars
+type StateListener = (state: State) => void
 
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>()
 

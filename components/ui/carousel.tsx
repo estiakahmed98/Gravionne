@@ -15,7 +15,7 @@ type CarouselOptions = UseCarouselParameters[0]
 type CarouselPlugin = UseCarouselParameters[1]
 
  
-type CarouselApiSetter = (api: CarouselApi) => void
+type CarouselApiSetter = (api: CarouselApi) => void // eslint-disable-line no-unused-vars
 
 type CarouselProps = {
   opts?: CarouselOptions

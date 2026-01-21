@@ -183,9 +183,11 @@ export default function BlogForm({ blog, onSuccess }: BlogFormProps) {
       }));
 
       toast.success("Image uploaded successfully");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Error uploading image:", err);
-      toast.error(err.message || "Error uploading image");
+      const message =
+        err instanceof Error ? err.message : "Error uploading image";
+      toast.error(message);
     } finally {
       setUploadingImage(false);
     }
@@ -227,9 +229,11 @@ export default function BlogForm({ blog, onSuccess }: BlogFormProps) {
       }));
 
       toast.success("Ad image uploaded successfully");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Error uploading ad image:", err);
-      toast.error(err.message || "Error uploading ad image");
+      const message =
+        err instanceof Error ? err.message : "Error uploading ad image";
+      toast.error(message);
     } finally {
       setUploadingAdImage(false);
     }
@@ -356,6 +360,20 @@ export default function BlogForm({ blog, onSuccess }: BlogFormProps) {
             </div>
           )}
 
+          <label className="inline-flex items-center gap-2 w-fit cursor-pointer">
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleImageFileChange}
+              disabled={uploadingImage}
+            />
+            <span className="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-blue-200 bg-blue-50 text-sm text-blue-800">
+              <Upload className="h-4 w-4" />
+              {uploadingImage ? "Uploading..." : "Upload image"}
+            </span>
+          </label>
+
           {/* Optional: manual URL input */}
           <input
             type="text"
@@ -386,6 +404,20 @@ export default function BlogForm({ blog, onSuccess }: BlogFormProps) {
               </button>
             </div>
           )}
+
+          <label className="inline-flex items-center gap-2 w-fit cursor-pointer">
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleAdImageFileChange}
+              disabled={uploadingAdImage}
+            />
+            <span className="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-blue-200 bg-blue-50 text-sm text-blue-800">
+              <Upload className="h-4 w-4" />
+              {uploadingAdImage ? "Uploading..." : "Upload ad image"}
+            </span>
+          </label>
 
           <input
             type="text"
