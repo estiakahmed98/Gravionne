@@ -62,15 +62,17 @@ export default function ContactPage() {
           <div className="container mx-auto max-w-screen-xl px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               {/* Contact Form */}
-              <div>
-                <h2 className="font-heading text-3xl font-semibold mb-6">
-                  Get in Touch
-                </h2>
-                <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Whether you're interested in our curations, seeking
-                  personalized wellness guidance, or exploring partnership
-                  opportunities, we'd love to hear from you.
-                </p>
+              <div className="flex flex-col gap-6">
+                <div>
+                  <h2 className="font-heading text-3xl font-semibold mb-6">
+                    Get in Touch
+                  </h2>
+                  <p className="text-muted-foreground mb-8 leading-relaxed">
+                    Whether you're interested in our curations, seeking
+                    personalized wellness guidance, or exploring partnership
+                    opportunities, we'd love to hear from you.
+                  </p>
+                </div>
 
                 <Card className="border-accent/20">
                   <CardContent className="p-8">
@@ -227,25 +229,83 @@ export default function ContactPage() {
                     </form>
                   </CardContent>
                 </Card>
+
+                {/* Socials */}
+                <Card className="border-accent/20">
+                  <CardContent className="p-6">
+                    <h3 className="font-heading text-lg font-semibold mb-4">
+                      Follow Us
+                    </h3>
+                    <div className="flex items-center gap-4">
+                      {/* Placeholder links until accounts are opened */}
+                      <a
+                        href="#"
+                        aria-label="Instagram"
+                        className="p-3 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors"
+                      >
+                        <Instagram className="w-5 h-5 text-accent" />
+                      </a>
+                      <a
+                        href="https://www.facebook.com/gravionne"
+                        aria-label="Facebook"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors"
+                      >
+                        <Facebook className="w-5 h-5 text-accent" />
+                      </a>
+                      <a
+                        href="#"
+                        aria-label="LinkedIn"
+                        className="p-3 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors"
+                      >
+                        <Linkedin className="w-5 h-5 text-accent" />
+                      </a>
+                      <a
+                        href="#"
+                        aria-label="YouTube"
+                        className="p-3 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors"
+                      >
+                        <Youtube className="w-5 h-5 text-accent" />
+                      </a>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-3">
+                      We'll update these links once the official accounts are
+                      live.
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
 
               {/* Contact Information */}
               <div>
-                <h2 className="font-heading text-3xl font-semibold mb-6">
-                  Contact Information
-                </h2>
-                <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Our team is available to assist you with personalized wellness
-                  solutions and partnership inquiries.
-                </p>
+                <div>
+                  <h2 className="font-heading text-3xl font-semibold mb-6">
+                    Contact Information
+                  </h2>
+                  <p className="text-muted-foreground mb-8 leading-relaxed">
+                    Our team is available to assist you with personalized
+                    wellness solutions and partnership inquiries. We strive to
+                    respond to all inquiries within 24-48 business hours. Your
+                    journey toward better health and stronger professional
+                    synergy starts with a single conversation.
+                  </p>
+                </div>
 
                 <div className="space-y-8">
                   <Card className="border-accent/20">
                     <CardContent className="p-6">
                       <p className="font-heading text-lg font-semibold mb-4">
-                        Gravionne – A Premium Health, Wellness & Health-Tech Company
+                        Gravionne – A Premium Health, Wellness & Health-Tech
+                        Company
                       </p>
-                      <img src="/aan logo.png" alt="" />
+                      <img
+                        src="/logos/Gravionne_logo-removebg-preview.png"
+                        alt="logo"
+                        width={170}
+                        height={170}
+                        className="rounded-2xl"
+                      />
                     </CardContent>
                   </Card>
 
@@ -259,10 +319,10 @@ export default function ContactPage() {
                         <div className="flex items-center gap-3">
                           <Mail className="w-5 h-5 text-accent" />
                           <a
-                            href="mailto:hello@Gravionne.com"
+                            href="mailto:hello@gravionne.com"
                             className="text-sm hover:underline"
                           >
-                            hello@Gravionne.com
+                            hello@gravionne.com
                           </a>
                         </div>
                         <div className="flex items-center gap-3">
@@ -288,10 +348,10 @@ export default function ContactPage() {
                         <div className="flex items-center gap-3">
                           <Mail className="w-5 h-5 text-accent" />
                           <a
-                            href="mailto:partnership@gmail.com"
+                            href="mailto:partnership@gravionne.com"
                             className="text-sm hover:underline"
                           >
-                            partnership@gmail.com
+                            partnership@gravionne.com
                           </a>
                         </div>
                         <div className="flex items-center gap-3">
@@ -317,10 +377,10 @@ export default function ContactPage() {
                         <div className="flex items-center gap-3">
                           <Mail className="w-5 h-5 text-accent" />
                           <a
-                            href="mailto:press@Gravionne.com"
+                            href="mailto:press@gravionne.com"
                             className="text-sm hover:underline"
                           >
-                            press@Gravionne.com
+                            press@gravionne.com
                           </a>
                         </div>
                         <div className="flex items-center gap-3">
@@ -363,50 +423,6 @@ export default function ContactPage() {
                           <span>Closed</span>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Socials */}
-                  <Card className="border-accent/20">
-                    <CardContent className="p-6">
-                      <h3 className="font-heading text-lg font-semibold mb-4">
-                        Follow Us
-                      </h3>
-                      <div className="flex items-center gap-4">
-                        {/* Placeholder links until accounts are opened */}
-                        <a
-                          href="#"
-                          aria-label="Instagram"
-                          className="p-3 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors"
-                        >
-                          <Instagram className="w-5 h-5 text-accent" />
-                        </a>
-                        <a
-                          href="#"
-                          aria-label="Facebook"
-                          className="p-3 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors"
-                        >
-                          <Facebook className="w-5 h-5 text-accent" />
-                        </a>
-                        <a
-                          href="#"
-                          aria-label="LinkedIn"
-                          className="p-3 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors"
-                        >
-                          <Linkedin className="w-5 h-5 text-accent" />
-                        </a>
-                        <a
-                          href="#"
-                          aria-label="YouTube"
-                          className="p-3 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors"
-                        >
-                          <Youtube className="w-5 h-5 text-accent" />
-                        </a>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-3">
-                        We'll update these links once the official accounts are
-                        live.
-                      </p>
                     </CardContent>
                   </Card>
                 </div>
