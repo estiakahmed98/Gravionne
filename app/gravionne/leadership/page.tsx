@@ -189,10 +189,10 @@ export default function LeadershipPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16">
               <Card className="group hover:shadow-xl transition-all duration-500">
-                <CardContent className="p-6 text-center">
-                  <div className="w-28 h-28 bg-muted rounded-full mx-auto mb-4 overflow-hidden">
+                <CardContent className="p-8 text-center">
+                  <div className="w-32 h-32 bg-muted rounded-full mx-auto mb-6 overflow-hidden">
                     <img
                       src="/advisory/Gravionne%20Website_Farooki_Passport.png"
                       alt="Sultana Razia Farooki"
@@ -209,8 +209,8 @@ export default function LeadershipPage() {
               </Card>
 
               <Card className="group hover:shadow-xl transition-all duration-500">
-                <CardContent className="p-6 text-center">
-                  <div className="w-28 h-28 bg-muted rounded-full mx-auto mb-4 overflow-hidden">
+                <CardContent className="p-8 text-center">
+                  <div className="w-32 h-32 bg-muted rounded-full mx-auto mb-6 overflow-hidden">
                     <img
                       src="/advisory/Gravionne%20Website_Dr.%20M%20Jahan_Passport.png"
                       alt="M. Jahan"
@@ -227,10 +227,10 @@ export default function LeadershipPage() {
               </Card>
 
               <Card className="group hover:shadow-xl transition-all duration-500">
-                <CardContent className="p-6 text-center">
-                  <div className="w-28 h-28 bg-muted rounded-full mx-auto mb-4 overflow-hidden">
+                <CardContent className="p-8 text-center">
+                  <div className="w-32 h-32 bg-muted rounded-full mx-auto mb-6 overflow-hidden">
                     <img
-                      src="/advisory/Gravionne%20Website_Monsur_Passport.png"
+                      src="/advisory/image.jpeg"
                       alt="A. N. M. Hasan Imam"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -245,8 +245,8 @@ export default function LeadershipPage() {
               </Card>
 
               <Card className="group hover:shadow-xl transition-all duration-500">
-                <CardContent className="p-6 text-center">
-                  <div className="w-28 h-28 bg-muted rounded-full mx-auto mb-4 overflow-hidden">
+                <CardContent className="p-8 text-center">
+                  <div className="w-32 h-32 bg-muted rounded-full mx-auto mb-6 overflow-hidden">
                     <img
                       src="/advisory/Gravionne%20Website_Titlee_Passport.png"
                       alt="Tasnim Alam Titlee"
@@ -258,6 +258,24 @@ export default function LeadershipPage() {
                   </h3>
                   <p className="text-accent font-medium mb-3">
                     Advisor – Quality & Compliance
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-xl transition-all duration-500">
+                <CardContent className="p-8 text-center">
+                  <div className="w-32 h-32 bg-muted rounded-full mx-auto mb-6 overflow-hidden">
+                    <img
+                      src="/advisory/Gravionne%20Website_Monsur_Passport.png"
+                      alt="A. N. M. Hasan Imam"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold mb-1">
+                    Abu Monsur
+                  </h3>
+                  <p className="text-accent font-medium mb-3">
+                    Chief Sales Officer
                   </p>
                 </CardContent>
               </Card>
