@@ -188,6 +188,80 @@ export default function LeadershipPage() {
                 promote wellness, innovation, and impact.
               </p>
             </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <Card className="group hover:shadow-xl transition-all duration-500">
+                <CardContent className="p-6 text-center">
+                  <div className="w-28 h-28 bg-muted rounded-full mx-auto mb-4 overflow-hidden">
+                    <img
+                      src="/advisory/Gravionne%20Website_Farooki_Passport.png"
+                      alt="Sultana Razia Farooki"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold mb-1">
+                    Sultana Razia Farooki, MBBS, MPH
+                  </h3>
+                  <p className="text-accent font-medium mb-3">
+                    Senior Advisor – Maternal & Child Health
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-xl transition-all duration-500">
+                <CardContent className="p-6 text-center">
+                  <div className="w-28 h-28 bg-muted rounded-full mx-auto mb-4 overflow-hidden">
+                    <img
+                      src="/advisory/Gravionne%20Website_Dr.%20M%20Jahan_Passport.png"
+                      alt="M. Jahan"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold mb-1">
+                    M. Jahan, MBBS, MPH
+                  </h3>
+                  <p className="text-accent font-medium mb-3">
+                    Senior Advisor – Nutrition & Wellness
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-xl transition-all duration-500">
+                <CardContent className="p-6 text-center">
+                  <div className="w-28 h-28 bg-muted rounded-full mx-auto mb-4 overflow-hidden">
+                    <img
+                      src="/advisory/Gravionne%20Website_Monsur_Passport.png"
+                      alt="A. N. M. Hasan Imam"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold mb-1">
+                    A. N. M. Hasan Imam, MBBS, MPH
+                  </h3>
+                  <p className="text-accent font-medium mb-3">
+                    Senior Advisor – Health & Wellness
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-xl transition-all duration-500">
+                <CardContent className="p-6 text-center">
+                  <div className="w-28 h-28 bg-muted rounded-full mx-auto mb-4 overflow-hidden">
+                    <img
+                      src="/advisory/Gravionne%20Website_Titlee_Passport.png"
+                      alt="Tasnim Alam Titlee"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold mb-1">
+                    Tasnim Alam Titlee, B.Pharm, M.Pharm
+                  </h3>
+                  <p className="text-accent font-medium mb-3">
+                    Advisor – Quality & Compliance
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
 
