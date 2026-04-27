@@ -247,6 +247,19 @@ export function Header() {
                 Impact
               </Link>
               <Link
+                href="/gravionne/careers"
+                aria-current={
+                  isActive("/gravionne/careers") ? "page" : undefined
+                }
+                className={`text-sm font-medium transition-colors whitespace-nowrap px-2.5 py-1.5 rounded-md ${
+                  isActive("/gravionne/careers")
+                    ? "text-white bg-[#be923c]/20"
+                    : "text-[#be923c] hover:text-white hover:bg-[#be923c]/10"
+                }`}
+              >
+                Careers
+              </Link>
+              <Link
                 href="/gravionne/contact"
                 aria-current={
                   isActive("/gravionne/contact") ? "page" : undefined
@@ -554,6 +567,20 @@ export function Header() {
                   onClick={() => setMobileOpen(false)}
                 >
                   Impact
+                </Link>
+                <Link
+                  href="/gravionne/careers"
+                  aria-current={
+                    isActive("/gravionne/careers") ? "page" : undefined
+                  }
+                  className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                    isActive("/gravionne/careers")
+                      ? "bg-[#be923c] text-[#003535]"
+                      : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                  }`}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Careers
                 </Link>
                 <Link
                   href="/gravionne/contact"

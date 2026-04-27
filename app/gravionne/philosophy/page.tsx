@@ -36,6 +36,19 @@ export default function PhilosophyPage() {
       />
 
       <main className="flex-1">
+        {/* What We Do Section */}
+        <section className="py-16 bg-card">
+          <div className="container mx-auto max-w-screen-xl px-4 text-center">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-6 text-balance">
+              What We Do
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
+              Gravionne delivers world-class healthcare products and advanced medical solutions for individuals and institutions worldwide.
+            </p>
+            <div className="mt-8 border-b border-accent/20 max-w-4xl mx-auto"></div>
+          </div>
+        </section>
+
         {/* Hero Section */}
         <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-background to-muted/20">
           <div className="container mx-auto max-w-screen-xl px-4 text-center">
