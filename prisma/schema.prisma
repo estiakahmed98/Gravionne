@@ -4,7 +4,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 enum Role {
@@ -13,44 +12,44 @@ enum Role {
 }
 
 model User {
-  id             String    @id @default(cuid())
-  email          String    @unique
-  name           String?
-  role           Role      @default(USER)
-  passwordHash   String?   @map("password")
-  phone          String?
-  image          String?
-  emailVerified  DateTime?
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  role          Role      @default(USER)
+  passwordHash  String?   @map("password")
+  phone         String?
+  image         String?
+  emailVerified DateTime?
 
-  accounts       Account[]
-  sessions       Session[]
+  accounts Account[]
+  sessions Session[]
 
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
   analyticsEvents AnalyticsEvent[]
 
   @@map("users")
 }
 
 model Account {
-  id                String   @id @default(cuid())
-  userId            String
-  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   provider          String
   providerAccountId String
   type              String
 
-  access_token      String?
-  refresh_token     String?
-  id_token          String?
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  session_state     String?
+  access_token  String?
+  refresh_token String?
+  id_token      String?
+  expires_at    Int?
+  token_type    String?
+  scope         String?
+  session_state String?
 
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@unique([provider, providerAccountId])
   @@index([userId])
@@ -64,8 +63,8 @@ model Session {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   expires      DateTime
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([userId])
   @@map("sessions")
@@ -101,39 +100,39 @@ enum AnalyticsEventName {
 }
 
 model AnalyticsEvent {
-  id        BigInt              @id @default(autoincrement())
-  ts        DateTime            @default(now())
-  event     AnalyticsEventName
+  id    BigInt             @id @default(autoincrement())
+  ts    DateTime           @default(now())
+  event AnalyticsEventName
 
   // Identity
-  visitorId String              @map("visitor_id") // GA client_id like
-  sessionId String              @map("session_id") // GA session
-  userId    String?             @map("user_id")    // optional (logged in)
-  user      User?               @relation(fields: [userId], references: [id], onDelete: SetNull)
+  visitorId String  @map("visitor_id") // GA client_id like
+  sessionId String  @map("session_id") // GA session
+  userId    String? @map("user_id") // optional (logged in)
+  user      User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
 
   // Page
-  path      String              @default("/") @map("path")
-  title     String?             @map("title")
-  referrer  String?             @map("referrer")
+  path     String  @default("/") @map("path")
+  title    String? @map("title")
+  referrer String? @map("referrer")
 
   // UTM
-  utmSource   String?           @map("utm_source")
-  utmMedium   String?           @map("utm_medium")
-  utmCampaign String?           @map("utm_campaign")
+  utmSource   String? @map("utm_source")
+  utmMedium   String? @map("utm_medium")
+  utmCampaign String? @map("utm_campaign")
 
   // Device
-  deviceType String?            @map("device_type") // mobile/desktop/tablet
-  browser    String?            @map("browser")
-  os         String?            @map("os")
-  screen     String?            @map("screen")
-  lang       String?            @map("lang")
+  deviceType String? @map("device_type") // mobile/desktop/tablet
+  browser    String? @map("browser")
+  os         String? @map("os")
+  screen     String? @map("screen")
+  lang       String? @map("lang")
 
   // Geo (optional)
-  country    String?            @map("country")
-  city       String?            @map("city")
+  country String? @map("country")
+  city    String? @map("city")
 
   // Engagement (heartbeat only)
-  activeSeconds Int             @default(0) @map("active_seconds")
+  activeSeconds Int @default(0) @map("active_seconds")
 
   ipHash String? @map("ip_hash")
   dayKey String  @default("") @map("day_key")
@@ -149,7 +148,6 @@ model AnalyticsEvent {
   @@index([deviceType, ts])
   @@map("analytics_events")
 }
-
 
 model GeoIpCache {
   id        Int      @id @default(autoincrement())
