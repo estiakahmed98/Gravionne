@@ -20,17 +20,19 @@ export default function HomePage() {
                 Elevating Health, Wellness & Humanity
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty mb-8 leading-relaxed">
-                A Premium health, wellness & health-tech company building our
-                global flagship. Welcoming visionary partners worldwide to shape
-                the future of human wellbeing.
+                Advancing Health. Improving Lives.
+              </p>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty mb-8 leading-relaxed">
+                Delivering world-class healthcare products and advanced medical
+                solutions for individuals and institutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/gravionne/philosophy">
+                <Link href="/#our-curations">
                   <Button
                     size="lg"
                     className="bg-[#003535] text-[#be923c] hover:bg-[#003535]/80"
                   >
-                    Discover Our Philosophy
+                    Explore Our Work
                   </Button>
                 </Link>
                 <Link href="/gravionne/partnership">
@@ -89,40 +91,45 @@ export default function HomePage() {
         </section>
 
         {/* Curations Preview */}
-        <section className="py-24">
+        <section id="our-curations" className="py-24 scroll-mt-24">
           <div className="container mx-auto max-w-screen-xl px-4">
-            <div className="text-center mb-16">
-              <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-6 text-balance">
+            <div className="mb-16 text-center">
+              <h2 className="font-heading mb-6 text-3xl font-semibold text-balance md:text-4xl">
                 Our Curations
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-                Three distinct collections, each crafted with precision and
+
+              <p className="mx-auto max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+                Our distinct collections, each crafted with precision and
                 purpose, representing our commitment to excellence in health and
                 wellness.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="group hover:shadow-lg transition-all duration-300">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              <Card className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <CardContent className="p-6">
-                  <div className="aspect-[4/5] bg-muted rounded-lg mb-6 overflow-hidden">
+                  <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
                     <img
                       src="/Sanovia.png"
                       alt="Sanovia Collection"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <h3 className="font-heading text-xl font-semibold mb-3">
+
+                  <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
                     Sanovia
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Our flagship collection embodying the essence of luxury
-                    wellness, where traditional wisdom meets modern innovation.
+
+                  <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
+                    Premium Dietary Supplements a flagship dietary supplements
+                    collection, Scientifically formulated to support everyday
+                    health and long-term wellbeing.
                   </p>
+
                   <Link href="/gravionne/curations/sanovia">
                     <Button
                       variant="ghost"
-                      className="text-[#be923c] hover:text-[#be923c] hover:bg-[#003535]"
+                      className="px-0 text-[#be923c] hover:bg-transparent hover:text-[#be923c]"
                     >
                       Discover Sanovia →
                     </Button>
@@ -130,56 +137,63 @@ export default function HomePage() {
                 </CardContent>
               </Card>
 
-              <Card className="group hover:shadow-lg transition-all duration-300">
+              <Card className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <CardContent className="p-6">
-                  <div className="aspect-[4/5] bg-muted rounded-lg mb-6 overflow-hidden">
+                  <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
                     <img
-                      src="/Mediora.png"
-                      alt="Mediora Collection"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      src="/Aurevia.png"
+                      alt="Aurevia Collection"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <h3 className="font-heading text-xl font-semibold mb-3">
-                    Mediora
+
+                  <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
+                    Aurevia
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Advanced health-tech solutions designed for the discerning
-                    individual who values both efficacy and elegance.
+
+                  <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
+                    Beauty Personal Care a curated collection of premium
+                    skincare and beauty products designed to enhance nature
+                    beauty through science and care.
                   </p>
-                  <Link href="/gravionne/curations/mediora">
+
+                  <Link href="/gravionne/curations/aurevia">
                     <Button
                       variant="ghost"
-                      className="text-[#be923c] hover:text-[#be923c] hover:bg-[#003535]"
+                      className="px-0 text-[#be923c] hover:bg-transparent hover:text-[#be923c]"
                     >
-                      Explore Mediora →
+                      View Aurevia →
                     </Button>
                   </Link>
                 </CardContent>
               </Card>
 
-              <Card className="group hover:shadow-lg transition-all duration-300">
+              <Card className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <CardContent className="p-6">
-                  <div className="aspect-[4/5] bg-muted rounded-lg mb-6 overflow-hidden">
+                  <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
                     <img
-                      src="/Aurevia.png"
-                      alt="Aurevia Collection"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      src="/Mediora.png"
+                      alt="Mediora Collection"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <h3 className="font-heading text-xl font-semibold mb-3">
-                    Aurevia
+
+                  <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
+                    Mediora
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    A curated selection of premium wellness essentials that
-                    celebrate the harmony between nature and scientific
-                    precision.
+
+                  <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
+                    Advanced Medical Solutions A range of advanced medical
+                    devices and healthcare solutions designed to support mordern
+                    clinical and personal health needs.
                   </p>
-                  <Link href="/gravionne/curations/aurevia">
+
+                  <Link href="/gravionne/curations/mediora">
                     <Button
                       variant="ghost"
-                      className="text-[#be923c] hover:text-[#be923c] hover:bg-[#003535]"
+                      className="px-0 text-[#be923c] hover:bg-transparent hover:text-[#be923c]"
                     >
-                      View Aurevia →
+                      Explore Mediora →
                     </Button>
                   </Link>
                 </CardContent>
