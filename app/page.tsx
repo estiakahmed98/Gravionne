@@ -11,7 +11,7 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1">
-        <SplashCursor />
+        {/* <SplashCursor /> */}
         {/* Hero Section */}
         <BackgroundLines className="h-screen flex items-center justify-center">
           <div className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-background to-muted/20">
@@ -116,14 +116,18 @@ export default function HomePage() {
                     />
                   </div>
 
-                  <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
+                  <h3 className="font-heading mb-1 text-xl font-semibold text-foreground">
                     Sanovia
                   </h3>
 
+                  <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#be923c] md:text-base">
+                    Premium Dietary Supplements
+                  </h4>
+
                   <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
-                    Premium Dietary Supplements a flagship dietary supplements
-                    collection, Scientifically formulated to support everyday
-                    health and long-term wellbeing.
+                    A flagship dietary supplements collection, scientifically
+                    formulated to support everyday health and long-term
+                    wellbeing.
                   </p>
 
                   <Link href="/gravionne/curations/sanovia">
@@ -151,10 +155,13 @@ export default function HomePage() {
                     Aurevia
                   </h3>
 
+                  <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#be923c] md:text-base">
+                    Beauty Personal Care
+                  </h4>
+
                   <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
-                    Beauty Personal Care a curated collection of premium
-                    skincare and beauty products designed to enhance nature
-                    beauty through science and care.
+                    A curated collection of premium skincare and beauty products
+                    designed to enhance nature beauty through science and care.
                   </p>
 
                   <Link href="/gravionne/curations/aurevia">
@@ -181,11 +188,13 @@ export default function HomePage() {
                   <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
                     Mediora
                   </h3>
-
+                  <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#be923c] md:text-base">
+                    Advanced Medical Solutions
+                  </h4>
                   <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
-                    Advanced Medical Solutions A range of advanced medical
-                    devices and healthcare solutions designed to support mordern
-                    clinical and personal health needs.
+                    A range of advanced medical devices and healthcare solutions
+                    designed to support mordern clinical and personal health
+                    needs.
                   </p>
 
                   <Link href="/gravionne/curations/mediora">
