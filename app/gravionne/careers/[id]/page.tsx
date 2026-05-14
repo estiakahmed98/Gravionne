@@ -361,6 +361,12 @@ export default async function JobDetailPage({
               <Card className="border border-border/40 shadow-sm mb-6">
                 <CardContent className="p-8">
                   <Mail className="w-10 h-10 text-[#be923c] mx-auto mb-4" />
+                  <a
+                    href="mailto:recruitment@gravionne.com?subject=Application for Healthcare Executive Position"
+                    className="mb-4 inline-flex items-center justify-center rounded-full border border-[#be923c]/40 bg-[#be923c]/10 px-5 py-2 text-sm font-medium text-[#003535] transition hover:bg-[#be923c]/20"
+                  >
+                    recruitment@gravionne.com
+                  </a>
 
                   <p className="text-foreground leading-relaxed mb-4">
                     Please send your updated resume and a brief cover letter to
