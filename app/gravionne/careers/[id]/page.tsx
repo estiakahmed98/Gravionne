@@ -35,13 +35,12 @@ interface Job {
 }
 
 interface PageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const job = jobsData.find((j: Job) => j.id === params.id);
+  const { id } = await params;
+  const job = jobsData.find((j: Job) => j.id === id);
 
   if (!job) {
     return {
@@ -362,21 +361,18 @@ export default async function JobDetailPage({
               <Card className="border border-border/40 shadow-sm mb-6">
                 <CardContent className="p-8">
                   <Mail className="w-10 h-10 text-[#be923c] mx-auto mb-4" />
+
                   <p className="text-foreground leading-relaxed mb-4">
-                    Please submit your application through our Google Form
-                    below. Make sure to include your updated resume and a brief
-                    cover letter.
+                    Please send your updated resume and a brief cover letter to
+                    our email address below.
                   </p>
+
                   <Button
                     className="bg-[#003535] text-[#be923c] hover:bg-[#003535]/80"
                     asChild
                   >
-                    <a
-                      href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Open Application Form
+                    <a href="mailto:recruitment@gravionne.com?subject=Application for Healthcare Executive Position">
+                      Apply via Email
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </a>
                   </Button>
