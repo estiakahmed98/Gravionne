@@ -204,6 +204,21 @@ export function Header() {
                   >
                     Aurevia
                   </Link>
+                  <Link
+                    href="/gravionne/curations/brandora"
+                    aria-current={
+                      isActive("/gravionne/curations/brandora")
+                        ? "page"
+                        : undefined
+                    }
+                    className={`block px-4 py-3 text-sm transition-colors last:rounded-b-md ${
+                      isActive("/gravionne/curations/brandora")
+                        ? "bg-[#be923c] text-[#003535] font-medium"
+                        : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                    }`}
+                  >
+                    Brandora
+                  </Link>
                 </div>
               </div>
 
@@ -275,9 +290,7 @@ export function Header() {
 
               <Link
                 href="/gravionne/blog"
-                aria-current={
-                  isActive("/gravionne/blog") ? "page" : undefined
-                }
+                aria-current={isActive("/gravionne/blog") ? "page" : undefined}
                 className={`text-sm font-medium transition-colors whitespace-nowrap px-2.5 py-1.5 rounded-md ${
                   isActive("/gravionne/blog")
                     ? "text-white bg-[#be923c]/20"
@@ -335,7 +348,7 @@ export function Header() {
                         onClick={() => {
                           setUserMenuOpen(false);
                           router.push(
-                            session.user.role === "ADMIN" ? "/admin" : "/user"
+                            session.user.role === "ADMIN" ? "/admin" : "/user",
                           );
                         }}
                       >
@@ -633,7 +646,7 @@ export function Header() {
                         onClick={() => {
                           setMobileOpen(false);
                           router.push(
-                            session.user.role === "ADMIN" ? "/admin" : "/user"
+                            session.user.role === "ADMIN" ? "/admin" : "/user",
                           );
                         }}
                       >

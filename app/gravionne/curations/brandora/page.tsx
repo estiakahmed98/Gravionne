@@ -773,29 +773,31 @@ export default function BrandoraPage() {
 
           {/* hero product visual — single transparent PNG, spills over into the next section */}
           <div className="relative z-20 h-[360px] w-full -mb-[10px] sm:h-[440px] lg:h-[520px]">
-            <Image
-              src="/hero (2).png"
-              alt="Gravionne print, packaging and garment accessories"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-contain"
-            />
+            <div className="relative h-full w-full animate-hero-float">
+              <Image
+                src="/hero (2).png"
+                alt="Gravionne print, packaging and garment accessories"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* ======================= PARTNER BAND ======================= */}
       <div className="relative border-y border-[#be923c]/15 bg-[#00302f] py-14 text-white">
-        <Reveal className="mx-auto max-w-screen-xl px-6 sm:px-8">
-          <blockquote className="font-heading mx-auto max-w-[820px] text-center text-[22px] italic leading-relaxed text-white/90 sm:text-[28px]">
+        <Reveal className="mx-auto max-w-[80vw] px-6 sm:px-8">
+          <blockquote className="font-heading mx-auto max-w-[80vw] text-center text-[22px] italic leading-relaxed text-white/90 sm:text-[28px]">
             &ldquo;We are not just a supplier — we are a{" "}
             <span className="not-italic text-[#be923c]">dedicated partner</span>{" "}
             to the pharmaceutical and garment industries, shaping printing,
             packaging, and accessories around the way you build your
             brand.&rdquo;
           </blockquote>
-          <div className="mt-5 text-center text-[11px] uppercase tracking-[0.2em] text-[#be923c]">
+          <div className="mt-5 text-end md:pr-10 text-[11px] uppercase tracking-[0.2em] text-[#be923c]">
             — The Gravionne Promise
           </div>
         </Reveal>
