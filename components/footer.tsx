@@ -10,10 +10,43 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
+function FooterHexPattern({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 400 400" fill="none" className={className} aria-hidden="true">
+      <defs>
+        <pattern
+          id="footer-hex"
+          width="56"
+          height="48"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M14 0 L42 0 L56 24 L42 48 L14 48 L0 24 Z"
+            stroke="#be923c"
+            strokeWidth="1"
+            fill="none"
+          />
+        </pattern>
+        <radialGradient id="footer-hex-fade" cx="80%" cy="80%" r="70%">
+          <stop offset="0%" stopColor="white" stopOpacity="1" />
+          <stop offset="100%" stopColor="white" stopOpacity="0" />
+        </radialGradient>
+        <mask id="footer-hex-mask">
+          <rect width="400" height="400" fill="url(#footer-hex-fade)" />
+        </mask>
+      </defs>
+      <rect width="400" height="400" fill="url(#footer-hex)" mask="url(#footer-hex-mask)" opacity="0.45" />
+    </svg>
+  );
+}
+
 export function Footer() {
   return (
-    <footer className="border-t border-[#be923c]/30 bg-gradient-to-b from-[#003535] to-[#003535]/90 text-[#be923c]">
-      <div className="container mx-auto max-w-screen-xl px-4 py-12">
+    <footer className="relative overflow-hidden border-t border-[#be923c]/30 bg-gradient-to-b from-[#003535] to-[#003535]/90 text-[#be923c]">
+      <div className="pointer-events-none absolute -bottom-10 -right-10 h-[420px] w-[420px]">
+        <FooterHexPattern className="h-full w-full" />
+      </div>
+      <div className="container relative z-10 mx-auto max-w-screen-xl px-4 py-12">
         <div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             <div className="space-y-4">
