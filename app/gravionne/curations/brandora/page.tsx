@@ -102,26 +102,11 @@ const whyChoose = [
 
 const clients = {
   healthcare: [
-    {
-      name: "Square Pharmaceuticals",
-      logo: "/logos/Square Pharmaceuticals.png",
-    },
-    { name: "Beximco Pharma", logo: "/logos/Beximco Pharma.webp" },
-    { name: "ACI", logo: "/logos/ACI.png" },
-    { name: "Aristopharma", logo: "/logos/Aristopharma.jpeg" },
-    { name: "Renata", logo: "/logos/Renata.png" },
-    { name: "Incepta", logo: "/logos/Incepta.png" },
+    { name: "ANC Medical Device BD Ltd.", logo: "/logos/anc.jpeg" },
+    { name: "Ethical Drugs Ltd.", logo: "/logos/edltd.jpeg" },
+    { name: "Everest Pharmaceuticals Ltd.", logo: "/logos/everest.jpeg" },
   ],
-  garment: [
-    { name: "H&M", logo: "/logos/H&M.webp" },
-    { name: "Zara", logo: "/logos/Zara.png" },
-    { name: "Next", logo: "/logos/Next.png" },
-    { name: "Mango", logo: "/logos/Mango.jpg" },
-    { name: "C&A", logo: "/logos/C&A.png" },
-    { name: "Bestseller", logo: "/logos/Bestseller.png" },
-    { name: "LC Waikiki", logo: "/logos/LC Waikiki.png" },
-    { name: "George", logo: "/logos/George.jpg" },
-  ],
+  garment: [{ name: "Comodo", logo: "/logos/comodo.jpeg" }],
 };
 
 /* ------------------------------------------------------------------ */
@@ -493,6 +478,7 @@ function QuoteSlip() {
   const [refNumber, setRefNumber] = useState("REQ-000000");
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -505,16 +491,39 @@ function QuoteSlip() {
     e.preventDefault();
     if (!formRef.current) return;
     setSending(true);
+    setSubmitError("");
+
     try {
       const data = new FormData(formRef.current);
-      await fetch(formRef.current.action, {
+      const response = await fetch(formRef.current.action, {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        body: JSON.stringify(Object.fromEntries(data.entries())),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
       });
+
+      const result = (await response.json()) as {
+        success?: boolean | string;
+        message?: string;
+      };
+
+      if (
+        !response.ok ||
+        result.success === false ||
+        result.success === "false"
+      ) {
+        throw new Error(result.message || "Unable to submit your request.");
+      }
+
       setSubmitted(true);
-    } catch {
-      formRef.current.submit();
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Unable to send your request. Please try again.",
+      );
     } finally {
       setSending(false);
     }
@@ -545,7 +554,7 @@ function QuoteSlip() {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          action="https://formsubmit.co/quotes@gravionne.com"
+          action="https://formsubmit.co/ajax/gravionne01@gmail.com"
           method="POST"
           className="px-8 pb-8 pt-6"
         >
@@ -603,7 +612,7 @@ function QuoteSlip() {
           <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Field
               label="Email"
-              name="Email"
+              name="email"
               type="email"
               placeholder="you@company.com"
               required
@@ -645,6 +654,14 @@ function QuoteSlip() {
               {sending ? "Sending…" : "Submit Request"}
             </button>
           </div>
+          {submitError && (
+            <p
+              role="alert"
+              className="mt-3 text-[12px] leading-relaxed text-red-600"
+            >
+              {submitError}
+            </p>
+          )}
           <p className="mt-3 text-[11px] leading-relaxed text-[#6b7280]">
             By submitting, your request is sent directly to our team for review
             and quotation.

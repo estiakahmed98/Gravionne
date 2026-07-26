@@ -92,7 +92,7 @@ export default function HomePage() {
 
         {/* Curations Preview */}
         <section id="our-curations" className="py-24 scroll-mt-24">
-          <div className="max-w-[90vw] mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-4">
             <div className="mb-16 text-center">
               <h2 className="font-heading mb-6 text-3xl font-semibold text-balance md:text-4xl">
                 Our Curations
@@ -105,7 +105,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mx-auto">
               <Card className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <CardContent className="p-6">
                   <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
@@ -136,40 +136,6 @@ export default function HomePage() {
                       className="px-0 text-[#be923c] hover:bg-transparent hover:text-[#be923c]"
                     >
                       Discover Sanovia →
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-
-              <Card className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                <CardContent className="p-6">
-                  <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
-                    <img
-                      src="/Aurevia.png"
-                      alt="Aurevia Collection"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-
-                  <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
-                    Aurevia
-                  </h3>
-
-                  <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#be923c] md:text-base">
-                    Beauty Personal Care
-                  </h4>
-
-                  <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
-                    A curated collection of premium skincare and beauty products
-                    designed to enhance nature beauty through science and care.
-                  </p>
-
-                  <Link href="/gravionne/curations/aurevia">
-                    <Button
-                      variant="ghost"
-                      className="px-0 text-[#be923c] hover:bg-transparent hover:text-[#be923c]"
-                    >
-                      View Aurevia →
                     </Button>
                   </Link>
                 </CardContent>

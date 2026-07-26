@@ -190,21 +190,6 @@ export function Header() {
                     Mediora
                   </Link>
                   <Link
-                    href="/gravionne/curations/aurevia"
-                    aria-current={
-                      isActive("/gravionne/curations/aurevia")
-                        ? "page"
-                        : undefined
-                    }
-                    className={`block px-4 py-3 text-sm transition-colors last:rounded-b-md ${
-                      isActive("/gravionne/curations/aurevia")
-                        ? "bg-[#be923c] text-[#003535] font-medium"
-                        : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
-                    }`}
-                  >
-                    Aurevia
-                  </Link>
-                  <Link
                     href="/gravionne/curations/brandora"
                     aria-current={
                       isActive("/gravionne/curations/brandora")
