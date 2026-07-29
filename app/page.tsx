@@ -106,105 +106,117 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mx-auto">
-              <Card className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                <CardContent className="p-6">
-                  <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
-                    <img
-                      src="/Sanovia.png"
-                      alt="Sanovia Collection"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
+              <Link
+                href="/gravionne/curations/sanovia"
+                className="block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                <Card className="group h-full overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
+                      <img
+                        src="/Sanovia.png"
+                        alt="Sanovia Collection"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
 
-                  <h3 className="font-heading mb-1 text-xl font-semibold text-foreground">
-                    Sanovia
-                  </h3>
+                    <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
+                      Sanovia
+                    </h3>
 
-                  <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#be923c] md:text-base">
-                    Premium Dietary Supplements
-                  </h4>
+                    <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#be923c] md:text-base">
+                      Premium Dietary Supplements
+                    </h4>
 
-                  <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
-                    A flagship dietary supplements collection, scientifically
-                    formulated to support everyday health and long-term
-                    wellbeing.
-                  </p>
+                    <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
+                      A flagship dietary supplements collection, scientifically
+                      formulated to support everyday health and long-term
+                      wellbeing.
+                    </p>
 
-                  <Link href="/gravionne/curations/sanovia">
                     <Button
+                      asChild
                       variant="ghost"
                       className="px-0 text-[#be923c] hover:bg-transparent hover:text-[#be923c]"
                     >
-                      Discover Sanovia →
+                      <span>Discover Sanovia →</span>
                     </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
 
-              <Card className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                <CardContent className="p-6">
-                  <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
-                    <img
-                      src="/Mediora.jpeg"
-                      alt="Mediora Collection"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
+              <Link
+                href="/gravionne/curations/mediora"
+                className="block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                <Card className="group h-full overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
+                      <img
+                        src="/Mediora.jpeg"
+                        alt="Mediora Collection"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
 
-                  <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
-                    Mediora
-                  </h3>
-                  <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#be923c] md:text-base">
-                    Advanced Medical Solutions
-                  </h4>
-                  <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
-                    A range of advanced medical devices and healthcare solutions
-                    designed to support mordern clinical and personal health
-                    needs.
-                  </p>
+                    <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
+                      Mediora
+                    </h3>
+                    <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#be923c] md:text-base">
+                      Advanced Medical Solutions
+                    </h4>
+                    <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
+                      A range of advanced medical devices and healthcare
+                      solutions designed to support mordern clinical and personal
+                      health needs.
+                    </p>
 
-                  <Link href="/gravionne/curations/mediora">
                     <Button
+                      asChild
                       variant="ghost"
                       className="px-0 text-[#be923c] hover:bg-transparent hover:text-[#be923c]"
                     >
-                      Explore Mediora →
+                      <span>Explore Mediora →</span>
                     </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
 
-              <Card className="group overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                <CardContent className="p-6">
-                  <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
-                    <img
-                      src="/Brandora.jpeg"
-                      alt="Brandora Collection"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
+              <Link
+                href="/gravionne/curations/brandora"
+                className="block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                <Card className="group h-full overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
+                      <img
+                        src="/Brandora.jpeg"
+                        alt="Brandora Collection"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
 
-                  <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
-                    Brandora
-                  </h3>
-                  <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#be923c] md:text-base">
-                    Premium Printing & Packaging
-                  </h4>
-                  <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
-                    A reliable partner for premium printing, packaging and
-                    accessories that elevate brand identity and value.
-                  </p>
+                    <h3 className="font-heading mb-3 text-xl font-semibold text-foreground">
+                      Brandora
+                    </h3>
+                    <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#be923c] md:text-base">
+                      Premium Printing & Packaging
+                    </h4>
+                    <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
+                      A reliable partner for premium printing, packaging and
+                      accessories that elevate brand identity and value.
+                    </p>
 
-                  <Link href="/gravionne/curations/brandora">
                     <Button
+                      asChild
                       variant="ghost"
                       className="px-0 text-[#be923c] hover:bg-transparent hover:text-[#be923c]"
                     >
-                      Explore Brandora →
+                      <span>Explore Brandora →</span>
                     </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           </div>
         </section>

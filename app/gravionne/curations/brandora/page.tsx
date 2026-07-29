@@ -106,7 +106,11 @@ const clients = {
     { name: "Ethical Drugs Ltd.", logo: "/logos/edltd.jpeg" },
     { name: "Everest Pharmaceuticals Ltd.", logo: "/logos/everest.jpeg" },
   ],
-  garment: [{ name: "Comodo", logo: "/logos/comodo.jpeg" }],
+  garment: [
+    { name: "Comodo", logo: "/logos/comodo.jpeg" },
+    { name: "Mango", logo: "/logos/Mango.jpg" },
+    { name: "Next", logo: "/logos/Next.png" },
+  ],
 };
 
 /* ------------------------------------------------------------------ */
