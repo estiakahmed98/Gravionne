@@ -165,8 +165,8 @@ export default function ContactPage() {
                           <option value="mediora">
                             Mediora - Health Technology
                           </option>
-                          <option value="aurevia">
-                            Aurevia - Natural Luxury
+                          <option value="Brandora">
+                            Brandora - Natural Luxury
                           </option>
                           <option value="consultation">
                             Personal Consultation

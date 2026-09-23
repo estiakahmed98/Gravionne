@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, buildMetadata, webPageJsonLd } from "@/lib/seo";
 
 const pageTitle = "Gravionne Curations";
 const pageDescription =
-  "Explore Gravionne’s curated collections blending luxury, science, and human flourishing across Sanovia, Aurevia, and Mediora.";
+  "Explore Gravionne’s curated collections blending luxury, science, and human flourishing across Sanovia, Brandora, and Mediora.";
 const pagePath = "/gravionne/curations";
 
 export const metadata = buildMetadata({
@@ -103,19 +103,19 @@ export default function CurationsPage() {
                 </CardContent>
               </Card>
 
-              {/* Aurevia */}
+              {/* Brandora */}
               <Card className="group hover:shadow-xl transition-all duration-500 border-0 bg-card">
                 <CardContent className="p-0">
                   <div className="aspect-[4/5] bg-muted rounded-t-lg overflow-hidden">
                     <img
-                      src="/Aurevia.png"
-                      alt="Aurevia Collection"
+                      src="/brandora.png"
+                      alt="Brandora Collection"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-8">
                     <h2 className="font-heading text-2xl font-semibold mb-4">
-                      Aurevia
+                      Brandora
                     </h2>
                     <p className="text-muted-foreground mb-6 leading-relaxed">
                       A curated selection of premium wellness essentials that
@@ -143,9 +143,9 @@ export default function CurationsPage() {
                         </span>
                       </div>
                     </div>
-                    <Link href="/gravionne/curations/aurevia">
+                    <Link href="/gravionne/curations/brandora">
                       <Button className="w-full bg-[#003535] text-[#be923c] hover:bg-[#003535]/90">
-                        View Aurevia
+                        View Brandora
                       </Button>
                     </Link>
                   </div>

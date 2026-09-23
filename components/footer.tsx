@@ -12,7 +12,12 @@ import { FaXTwitter } from "react-icons/fa6";
 
 function FooterHexPattern({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 400 400" fill="none" className={className} aria-hidden="true">
+    <svg
+      viewBox="0 0 400 400"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
       <defs>
         <pattern
           id="footer-hex"
@@ -35,7 +40,13 @@ function FooterHexPattern({ className = "" }: { className?: string }) {
           <rect width="400" height="400" fill="url(#footer-hex-fade)" />
         </mask>
       </defs>
-      <rect width="400" height="400" fill="url(#footer-hex)" mask="url(#footer-hex-mask)" opacity="0.45" />
+      <rect
+        width="400"
+        height="400"
+        fill="url(#footer-hex)"
+        mask="url(#footer-hex-mask)"
+        opacity="0.45"
+      />
     </svg>
   );
 }
@@ -48,7 +59,7 @@ export function Footer() {
       </div>
       <div className="container relative z-10 mx-auto max-w-screen-xl px-4 py-12">
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-8 md:gap-8">
             <div className="space-y-4">
               <h3 className="font-heading text-lg font-semibold">Curations</h3>
               <div className="space-y-2">
@@ -71,10 +82,10 @@ export function Footer() {
                   Mediora
                 </Link>
                 <Link
-                  href="/gravionne/curations/aurevia"
+                  href="/gravionne/curations/brandora"
                   className="block text-sm text-[#be923c] hover:text-[#be923c] transition-colors"
                 >
-                  Aurevia
+                  Brandora
                 </Link>
               </div>
             </div>
@@ -157,7 +168,7 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="col-span-2 space-y-4 md:col-span-1">
               <h3 className="font-heading text-lg font-semibold">Connect</h3>
 
               <div className="flex flex-wrap gap-4 mb-4">

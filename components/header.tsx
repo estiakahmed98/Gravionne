@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,7 @@ export function Header() {
   const router = useRouter();
   const { data: session, status } = useSession();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
   // Prevent hydration mismatch
@@ -49,17 +51,48 @@ export function Header() {
     setMobileCurationsOpen(false);
   }, [pathname]);
 
-  // Prevent body scroll when mobile menu is open
+  // Lock the page on mobile, including browsers that ignore body overflow.
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    if (!mobileOpen) return;
+
+    const { body, documentElement } = document;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const previous = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      width: body.style.width,
+      rootOverflow: documentElement.style.overflow,
+    };
+
+    documentElement.style.overflow = "hidden";
+    Object.assign(body.style, {
+      overflow: "hidden",
+      position: "fixed",
+      top: `-${scrollY}px`,
+      left: `-${scrollX}px`,
+      width: "100%",
+    });
+
     return () => {
-      document.body.style.overflow = "unset";
+      const { rootOverflow, ...bodyStyles } = previous;
+      Object.assign(body.style, bodyStyles);
+      documentElement.style.overflow = rootOverflow;
+      window.scrollTo({ left: scrollX, top: scrollY, behavior: "instant" });
     };
   }, [mobileOpen]);
+
+  // Release the mobile scroll lock when switching to desktop navigation.
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setMobileOpen(false);
+    };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
 
   // Close menus when clicking outside
   useEffect(() => {
@@ -75,7 +108,7 @@ export function Header() {
         mobileOpen &&
         mobileMenuRef.current &&
         !mobileMenuRef.current.contains(event.target as Node) &&
-        !(event.target as Element).closest('[aria-label="Toggle menu"]')
+        !mobileToggleRef.current?.contains(event.target as Node)
       ) {
         setMobileOpen(false);
       }
@@ -369,6 +402,7 @@ export function Header() {
 
           {/* Mobile menu button */}
           <button
+            ref={mobileToggleRef}
             className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-[#be923c] hover:text-white hover:bg-[#be923c]/20 transition flex-shrink-0 ml-2"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -384,299 +418,307 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile panel - Full screen overlay */}
-      <div
-        ref={mobileMenuRef}
-        id="mobile-menu"
-        className={`lg:hidden fixed inset-0 z-50 transition-all duration-300 ease-in-out ${
-          mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-        aria-hidden={!mobileOpen}
-      >
-        {/* Backdrop */}
-        <div
-          className={`absolute inset-0 bg-black transition-opacity duration-300 ${
-            mobileOpen ? "opacity-50" : "opacity-0"
-          }`}
-          onClick={() => setMobileOpen(false)}
-        />
+      {/* Portal keeps the overlay outside the header's backdrop-filter containing block. */}
+      {isClient &&
+        createPortal(
+          <div
+            ref={mobileMenuRef}
+            id="mobile-menu"
+            className={`lg:hidden fixed inset-x-0 top-0 h-dvh overflow-hidden z-[60] transition-opacity duration-300 ease-in-out ${
+              mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"
+            }`}
+            aria-hidden={!mobileOpen}
+          >
+            {/* Backdrop */}
+            <div
+              className={`absolute inset-0 bg-black transition-opacity duration-300 ${
+                mobileOpen ? "opacity-50" : "opacity-0"
+              }`}
+              onClick={() => setMobileOpen(false)}
+            />
 
-        {/* Menu panel */}
-        <div
-          className={`absolute right-0 top-0 h-full w-full max-w-sm bg-[#003535] shadow-xl transform transition-transform duration-300 ease-in-out ${
-            mobileOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="h-full flex flex-col">
-            {/* Mobile header */}
-            <div className="flex items-center justify-between px-4 py-4 border-b border-[#be923c]/30">
-              <div className="flex items-center gap-2">
-                <div className="relative w-10 h-10 flex-shrink-0">
-                  <Image
-                    src="/logos/G GOLD.svg"
-                    alt="Gravionne Logo"
-                    fill
-                    sizes="40px"
-                    className="rounded-full ring-1 ring-[#be923c] object-cover"
-                  />
-                </div>
-              </div>
-              <button
-                onClick={() => setMobileOpen(false)}
-                aria-label="Close menu"
-                className="p-2 rounded-md text-[#be923c] hover:text-white hover:bg-[#be923c]/20 transition"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            {/* Mobile menu content - Scrollable */}
-            <div className="flex-1 overflow-y-auto">
-              <div className="px-4 py-6 space-y-2">
-                <Link
-                  href="/gravionne/philosophy"
-                  aria-current={
-                    isActive("/gravionne/philosophy") ? "page" : undefined
-                  }
-                  className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                    isActive("/gravionne/philosophy")
-                      ? "bg-[#be923c] text-[#003535]"
-                      : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Philosophy
-                </Link>
-
-                {/* Mobile Curations (accordion) */}
-                <div className="w-full rounded-lg overflow-hidden">
+            {/* Menu panel */}
+            <div
+              className={`absolute right-0 top-0 h-full w-full max-w-sm bg-[#003535] shadow-xl transform transition-transform duration-300 ease-in-out ${
+                mobileOpen ? "translate-x-0" : "translate-x-full"
+              }`}
+            >
+              <div className="h-full flex flex-col">
+                {/* Mobile header */}
+                <div className="flex shrink-0 items-center justify-between px-4 py-4 border-b border-[#be923c]/30">
+                  <div className="flex items-center gap-2">
+                    <div className="relative w-10 h-10 flex-shrink-0">
+                      <Image
+                        src="/logos/G GOLD.svg"
+                        alt="Gravionne Logo"
+                        fill
+                        sizes="40px"
+                        className="rounded-full ring-1 ring-[#be923c] object-cover"
+                      />
+                    </div>
+                  </div>
                   <button
-                    className={`w-full flex items-center justify-between rounded-lg px-4 py-3 text-left text-base font-medium transition-colors ${
-                      isSection("/gravionne/curations")
-                        ? "bg-[#be923c] text-[#003535]"
-                        : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
-                    }`}
-                    aria-expanded={mobileCurationsOpen}
-                    onClick={() => setMobileCurationsOpen((o) => !o)}
+                    onClick={() => setMobileOpen(false)}
+                    aria-label="Close menu"
+                    className="p-2 rounded-md text-[#be923c] hover:text-white hover:bg-[#be923c]/20 transition"
                   >
-                    <span>Curations</span>
-                    <ChevronDown
-                      className={`h-5 w-5 transition-transform duration-200 ${
-                        mobileCurationsOpen ? "rotate-180" : ""
-                      }`}
-                    />
+                    <X className="h-5 w-5" />
                   </button>
-                  <div
-                    className={`transition-all duration-200 overflow-hidden ${
-                      mobileCurationsOpen ? "max-h-48" : "max-h-0"
-                    }`}
-                  >
-                    <div className="pt-1 space-y-1">
-                      <Link
-                        href="/gravionne/curations/sanovia"
-                        aria-current={
-                          isActive("/gravionne/curations/sanovia")
-                            ? "page"
-                            : undefined
-                        }
-                        className={`block rounded-lg px-4 py-3 text-base transition-colors ml-2 ${
-                          isActive("/gravionne/curations/sanovia")
+                </div>
+
+                {/* Mobile menu content - Scrollable */}
+                <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-contain">
+                  <div className="px-4 py-6 space-y-2">
+                    <Link
+                      href="/gravionne/philosophy"
+                      aria-current={
+                        isActive("/gravionne/philosophy") ? "page" : undefined
+                      }
+                      className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                        isActive("/gravionne/philosophy")
+                          ? "bg-[#be923c] text-[#003535]"
+                          : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                      }`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Philosophy
+                    </Link>
+
+                    {/* Mobile Curations (accordion) */}
+                    <div className="w-full rounded-lg overflow-hidden">
+                      <button
+                        className={`w-full flex items-center justify-between rounded-lg px-4 py-3 text-left text-base font-medium transition-colors ${
+                          isSection("/gravionne/curations")
                             ? "bg-[#be923c] text-[#003535]"
                             : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
                         }`}
-                        onClick={() => setMobileOpen(false)}
+                        aria-expanded={mobileCurationsOpen}
+                        onClick={() => setMobileCurationsOpen((o) => !o)}
                       >
-                        Sanovia
-                      </Link>
-                      <Link
-                        href="/gravionne/curations/mediora"
-                        aria-current={
-                          isActive("/gravionne/curations/mediora")
-                            ? "page"
-                            : undefined
-                        }
-                        className={`block rounded-lg px-4 py-3 text-base transition-colors ml-2 ${
-                          isActive("/gravionne/curations/mediora")
-                            ? "bg-[#be923c] text-[#003535]"
-                            : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                        <span>Curations</span>
+                        <ChevronDown
+                          className={`h-5 w-5 transition-transform duration-200 ${
+                            mobileCurationsOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      <div
+                        className={`transition-all duration-200 overflow-hidden ${
+                          mobileCurationsOpen ? "max-h-48" : "max-h-0"
                         }`}
-                        onClick={() => setMobileOpen(false)}
                       >
-                        Mediora
-                      </Link>
-                      <Link
-                        href="/gravionne/curations/aurevia"
-                        aria-current={
-                          isActive("/gravionne/curations/aurevia")
-                            ? "page"
-                            : undefined
-                        }
-                        className={`block rounded-lg px-4 py-3 text-base transition-colors ml-2 ${
-                          isActive("/gravionne/curations/aurevia")
-                            ? "bg-[#be923c] text-[#003535]"
-                            : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
-                        }`}
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        Aurevia
-                      </Link>
+                        <div className="pt-1 space-y-1">
+                          <Link
+                            href="/gravionne/curations/sanovia"
+                            aria-current={
+                              isActive("/gravionne/curations/sanovia")
+                                ? "page"
+                                : undefined
+                            }
+                            className={`block rounded-lg px-4 py-3 text-base transition-colors ml-2 ${
+                              isActive("/gravionne/curations/sanovia")
+                                ? "bg-[#be923c] text-[#003535]"
+                                : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                            }`}
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            Sanovia
+                          </Link>
+                          <Link
+                            href="/gravionne/curations/mediora"
+                            aria-current={
+                              isActive("/gravionne/curations/mediora")
+                                ? "page"
+                                : undefined
+                            }
+                            className={`block rounded-lg px-4 py-3 text-base transition-colors ml-2 ${
+                              isActive("/gravionne/curations/mediora")
+                                ? "bg-[#be923c] text-[#003535]"
+                                : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                            }`}
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            Mediora
+                          </Link>
+                          <Link
+                            href="/gravionne/curations/brandora"
+                            aria-current={
+                              isActive("/gravionne/curations/brandora")
+                                ? "page"
+                                : undefined
+                            }
+                            className={`block rounded-lg px-4 py-3 text-base transition-colors ml-2 ${
+                              isActive("/gravionne/curations/brandora")
+                                ? "bg-[#be923c] text-[#003535]"
+                                : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                            }`}
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            Brandora
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+
+                    <Link
+                      href="/gravionne/journals"
+                      aria-current={
+                        isActive("/gravionne/journals") ? "page" : undefined
+                      }
+                      className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                        isActive("/gravionne/journals")
+                          ? "bg-[#be923c] text-[#003535]"
+                          : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                      }`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Journals
+                    </Link>
+                    <Link
+                      href="/gravionne/leadership"
+                      aria-current={
+                        isActive("/gravionne/leadership") ? "page" : undefined
+                      }
+                      className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                        isActive("/gravionne/leadership")
+                          ? "bg-[#be923c] text-[#003535]"
+                          : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                      }`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Leadership
+                    </Link>
+                    <Link
+                      href="/gravionne/impact"
+                      aria-current={
+                        isActive("/gravionne/impact") ? "page" : undefined
+                      }
+                      className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                        isActive("/gravionne/impact")
+                          ? "bg-[#be923c] text-[#003535]"
+                          : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                      }`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Impact
+                    </Link>
+                    <Link
+                      href="/gravionne/careers"
+                      aria-current={
+                        isActive("/gravionne/careers") ? "page" : undefined
+                      }
+                      className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                        isActive("/gravionne/careers")
+                          ? "bg-[#be923c] text-[#003535]"
+                          : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                      }`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Careers
+                    </Link>
+                    <Link
+                      href="/gravionne/contact"
+                      aria-current={
+                        isActive("/gravionne/contact") ? "page" : undefined
+                      }
+                      className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                        isActive("/gravionne/contact")
+                          ? "bg-[#be923c] text-[#003535]"
+                          : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                      }`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Contact
+                    </Link>
+
+                    <Link
+                      href="/gravionne/blog"
+                      aria-current={
+                        isActive("/gravionne/blog") ? "page" : undefined
+                      }
+                      className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                        isActive("/gravionne/blog")
+                          ? "bg-[#be923c] text-[#003535]"
+                          : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
+                      }`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Blog
+                    </Link>
+
+                    {/* Mobile CTA */}
+                    <div className="pt-6 mt-6 border-t border-[#be923c]/20">
+                      {isClient &&
+                      status === "authenticated" &&
+                      session?.user ? (
+                        <>
+                          <div className="px-4 py-3 bg-[#003535]/50 rounded-lg mb-3">
+                            <p className="text-xs text-[#be923c] opacity-75">
+                              Logged in as
+                            </p>
+                            <p className="text-sm font-medium text-white truncate">
+                              {getFirstName(session.user.name)}
+                            </p>
+                            <p className="text-xs text-[#be923c] truncate">
+                              {session.user.role}
+                            </p>
+                          </div>
+                          <Button
+                            variant="outline"
+                            className="w-full border-[#be923c] text-[#be923c] hover:bg-[#be923c] hover:text-[#003535] bg-transparent text-base py-3 mb-2"
+                            onClick={() => {
+                              setMobileOpen(false);
+                              router.push(
+                                session.user.role === "ADMIN"
+                                  ? "/admin"
+                                  : "/user",
+                              );
+                            }}
+                          >
+                            <User className="h-5 w-5 mr-2" />
+                            Dashboard
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="w-full border-red-600/50 text-red-400 hover:bg-red-600/20 hover:border-red-600 hover:text-red-300 bg-transparent text-base py-3"
+                            onClick={() => {
+                              setMobileOpen(false);
+                              signOut({ callbackUrl: "/" });
+                            }}
+                          >
+                            Sign Out
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Button
+                            variant="outline"
+                            className="w-full border-[#be923c] text-[#be923c] hover:bg-[#be923c] hover:text-[#003535] bg-transparent text-base py-3 mb-2"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            Your Gateway to Elegance
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="w-full border-[#be923c] text-[#be923c] hover:bg-[#be923c] hover:text-[#003535] bg-transparent text-base py-3"
+                            onClick={() => {
+                              setMobileOpen(false);
+                              router.push("/auth/signin");
+                            }}
+                          >
+                            <User className="h-5 w-5 mr-2" />
+                            Sign In
+                          </Button>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
-
-                <Link
-                  href="/gravionne/journals"
-                  aria-current={
-                    isActive("/gravionne/journals") ? "page" : undefined
-                  }
-                  className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                    isActive("/gravionne/journals")
-                      ? "bg-[#be923c] text-[#003535]"
-                      : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Journals
-                </Link>
-                <Link
-                  href="/gravionne/leadership"
-                  aria-current={
-                    isActive("/gravionne/leadership") ? "page" : undefined
-                  }
-                  className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                    isActive("/gravionne/leadership")
-                      ? "bg-[#be923c] text-[#003535]"
-                      : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Leadership
-                </Link>
-                <Link
-                  href="/gravionne/impact"
-                  aria-current={
-                    isActive("/gravionne/impact") ? "page" : undefined
-                  }
-                  className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                    isActive("/gravionne/impact")
-                      ? "bg-[#be923c] text-[#003535]"
-                      : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Impact
-                </Link>
-                <Link
-                  href="/gravionne/careers"
-                  aria-current={
-                    isActive("/gravionne/careers") ? "page" : undefined
-                  }
-                  className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                    isActive("/gravionne/careers")
-                      ? "bg-[#be923c] text-[#003535]"
-                      : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Careers
-                </Link>
-                <Link
-                  href="/gravionne/contact"
-                  aria-current={
-                    isActive("/gravionne/contact") ? "page" : undefined
-                  }
-                  className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                    isActive("/gravionne/contact")
-                      ? "bg-[#be923c] text-[#003535]"
-                      : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Contact
-                </Link>
-
-                <Link
-                  href="/gravionne/blog"
-                  aria-current={
-                    isActive("/gravionne/blog") ? "page" : undefined
-                  }
-                  className={`block w-full rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                    isActive("/gravionne/blog")
-                      ? "bg-[#be923c] text-[#003535]"
-                      : "text-[#be923c] hover:bg-[#be923c]/20 hover:text-white"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Blog
-                </Link>
-
-                {/* Mobile CTA */}
-                <div className="pt-6 mt-6 border-t border-[#be923c]/20">
-                  {isClient && status === "authenticated" && session?.user ? (
-                    <>
-                      <div className="px-4 py-3 bg-[#003535]/50 rounded-lg mb-3">
-                        <p className="text-xs text-[#be923c] opacity-75">
-                          Logged in as
-                        </p>
-                        <p className="text-sm font-medium text-white truncate">
-                          {getFirstName(session.user.name)}
-                        </p>
-                        <p className="text-xs text-[#be923c] truncate">
-                          {session.user.role}
-                        </p>
-                      </div>
-                      <Button
-                        variant="outline"
-                        className="w-full border-[#be923c] text-[#be923c] hover:bg-[#be923c] hover:text-[#003535] bg-transparent text-base py-3 mb-2"
-                        onClick={() => {
-                          setMobileOpen(false);
-                          router.push(
-                            session.user.role === "ADMIN" ? "/admin" : "/user",
-                          );
-                        }}
-                      >
-                        <User className="h-5 w-5 mr-2" />
-                        Dashboard
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="w-full border-red-600/50 text-red-400 hover:bg-red-600/20 hover:border-red-600 hover:text-red-300 bg-transparent text-base py-3"
-                        onClick={() => {
-                          setMobileOpen(false);
-                          signOut({ callbackUrl: "/" });
-                        }}
-                      >
-                        Sign Out
-                      </Button>
-                    </>
-                  ) : (
-                    <>
-                      <Button
-                        variant="outline"
-                        className="w-full border-[#be923c] text-[#be923c] hover:bg-[#be923c] hover:text-[#003535] bg-transparent text-base py-3 mb-2"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        Your Gateway to Elegance
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="w-full border-[#be923c] text-[#be923c] hover:bg-[#be923c] hover:text-[#003535] bg-transparent text-base py-3"
-                        onClick={() => {
-                          setMobileOpen(false);
-                          router.push("/auth/signin");
-                        }}
-                      >
-                        <User className="h-5 w-5 mr-2" />
-                        Sign In
-                      </Button>
-                    </>
-                  )}
-                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </div>,
+          document.body,
+        )}
     </header>
   );
 }

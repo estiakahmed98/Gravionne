@@ -167,8 +167,8 @@ export default function HomePage() {
                     </h4>
                     <p className="mb-5 min-h-[88px] text-sm leading-relaxed text-muted-foreground md:text-base">
                       A range of advanced medical devices and healthcare
-                      solutions designed to support mordern clinical and personal
-                      health needs.
+                      solutions designed to support mordern clinical and
+                      personal health needs.
                     </p>
 
                     <Button
@@ -190,7 +190,7 @@ export default function HomePage() {
                   <CardContent className="p-6">
                     <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
                       <img
-                        src="/Brandora.jpeg"
+                        src="/brandora.jpeg"
                         alt="Brandora Collection"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />

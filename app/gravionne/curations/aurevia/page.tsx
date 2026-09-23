@@ -4,10 +4,10 @@ import Link from "next/link";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbJsonLd, buildMetadata, webPageJsonLd } from "@/lib/seo";
 
-const pageTitle = "Aurevia — Beauty, Glow & Lifestyle Wellness";
+const pageTitle = "Brandora — Beauty, Glow & Lifestyle Wellness";
 const pageDescription =
-  "Explore Aurevia, Gravionne’s curation of premium beauty and lifestyle wellness essentials that unite nature with scientific precision.";
-const pagePath = "/gravionne/curations/aurevia";
+  "Explore Brandora, Gravionne’s curation of premium beauty and lifestyle wellness essentials that unite nature with scientific precision.";
+const pagePath = "/gravionne/curations/brandora";
 
 export const metadata = buildMetadata({
   title: pageTitle,
@@ -15,7 +15,7 @@ export const metadata = buildMetadata({
   path: pagePath,
 });
 
-export default function AureviaPage() {
+export default function BrandoraPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <JsonLd
@@ -24,16 +24,16 @@ export default function AureviaPage() {
           description: pageDescription,
           path: pagePath,
         })}
-        id="aurevia-webpage-jsonld"
+        id="Brandora-webpage-jsonld"
       />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
           { name: "Gravionne", path: "/gravionne" },
           { name: "Curations", path: "/gravionne/curations" },
-          { name: "Aurevia", path: pagePath },
+          { name: "Brandora", path: pagePath },
         ])}
-        id="aurevia-breadcrumb-jsonld"
+        id="Brandora-breadcrumb-jsonld"
       />
 
       <main className="flex-1">
@@ -51,7 +51,7 @@ export default function AureviaPage() {
                   </Link>
                 </div>
                 <h1 className="font-heading text-4xl md:text-6xl font-bold tracking-tight text-balance mb-6">
-                  Aurevia — Beauty, Glow & Lifestyle Wellness
+                  Brandora — Beauty, Glow & Lifestyle Wellness
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground text-pretty mb-8 leading-relaxed">
                   A curated selection of premium wellness essentials that
@@ -81,8 +81,8 @@ export default function AureviaPage() {
               <div className="relative">
                 <div className="aspect-[4/5] bg-muted rounded-lg overflow-hidden">
                   <img
-                    src="/Aurevia.png"
-                    alt="Aurevia Collection Hero"
+                    src="/brandora.png"
+                    alt="Brandora Collection Hero"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -99,8 +99,9 @@ export default function AureviaPage() {
                 Nature Meets Science
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-                Aurevia embodies our commitment to sustainable luxury, combining
-                the wisdom of nature with the precision of modern science.
+                Brandora embodies our commitment to sustainable luxury,
+                combining the wisdom of nature with the precision of modern
+                science.
               </p>
             </div>
 
@@ -116,15 +117,15 @@ export default function AureviaPage() {
                 },
                 {
                   title: "Sustainable Luxury",
-                  desc: "Committed to environmental stewardship, every aspect of Aurevia reflects our dedication to sustainable and ethical luxury practices.",
+                  desc: "Committed to environmental stewardship, every aspect of Brandora reflects our dedication to sustainable and ethical luxury practices.",
                 },
               ].map((f) => {
                 const iconSrc =
                   f.title === "Natural Ingredients"
                     ? "/natural-ingredients.png"
                     : f.title === "Scientific Precision"
-                    ? "/research.png"
-                    : "/all-inclusive.png";
+                      ? "/research.png"
+                      : "/all-inclusive.png";
 
                 return (
                   <Card
@@ -174,7 +175,7 @@ export default function AureviaPage() {
                   <div className="aspect-square bg-muted rounded-lg mb-6 overflow-hidden">
                     <img
                       src="/natural-wellness-oils-in-elegant-glass-bottles.png"
-                      alt="Aurevia Collagen"
+                      alt="Brandora Collagen"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -198,7 +199,7 @@ export default function AureviaPage() {
                       </div>
                       <div>
                         <h4 className="font-heading font-semibold mb-2">
-                          Why Choose from Gravionne Aurevia
+                          Why Choose from Gravionne Brandora
                         </h4>
                         <p className="text-muted-foreground">
                           Beauty-from-within solution trusted for skin, hair,
@@ -253,7 +254,7 @@ export default function AureviaPage() {
                   <div className="aspect-square bg-muted rounded-lg mb-6 overflow-hidden">
                     <img
                       src="/premium-herbal-supplements-in-sustainable-packagin.png"
-                      alt="Aurevia Glutathione"
+                      alt="Brandora Glutathione"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -276,7 +277,7 @@ export default function AureviaPage() {
                       </div>
                       <div>
                         <h4 className="font-heading font-semibold mb-2">
-                          Why Choose from Gravionne Aurevia
+                          Why Choose from Gravionne Brandora
                         </h4>
                         <p className="text-muted-foreground">
                           Premium detoxification and glow enhancer backed by
@@ -335,7 +336,7 @@ export default function AureviaPage() {
               Embrace Natural Luxury
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty mb-8">
-              Join our network of wellness partners and bring the Aurevia
+              Join our network of wellness partners and bring the Brandora
               experience to your community. Discover how natural luxury can
               enhance your wellness offerings.
             </p>

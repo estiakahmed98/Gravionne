@@ -200,7 +200,7 @@ export const gravionneStaticPaths = [
   "/gravionne/compliance",
   "/gravionne/contact",
   "/gravionne/curations",
-  "/gravionne/curations/aurevia",
+  "/gravionne/curations/brandora",
   "/gravionne/curations/mediora",
   "/gravionne/curations/sanovia",
   "/gravionne/impact",
