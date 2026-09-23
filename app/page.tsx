@@ -400,7 +400,7 @@ export default function HomePage() {
             </div>
 
             <div className="text-center mt-12">
-              <Link href="/leadership">
+              <Link href="/gravionne/leadership">
                 <Button
                   variant="outline"
                   className="border-accent text-accent hover:bg-[#003535] hover:text-[#be923c] bg-transparent"
