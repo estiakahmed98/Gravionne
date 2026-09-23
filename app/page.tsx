@@ -190,7 +190,7 @@ export default function HomePage() {
                   <CardContent className="p-6">
                     <div className="mb-6 aspect-[4/5] overflow-hidden rounded-lg bg-muted">
                       <img
-                        src="/brandora.jpeg"
+                        src="/brandora.png"
                         alt="Brandora Collection"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
